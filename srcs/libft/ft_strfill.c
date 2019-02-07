@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrev_leakless.c                               :+:      :+:    :+:   */
+/*   ft_strfill.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/25 13:29:38 by judumay           #+#    #+#             */
-/*   Updated: 2019/01/25 13:29:44 by judumay          ###   ########.fr       */
+/*   Created: 2019/01/23 12:25:33 by judumay           #+#    #+#             */
+/*   Updated: 2019/02/07 10:35:27 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-char	*ft_strrev_leakless(char *s)
+char	*ft_strfill(char *s, char c, size_t size)
 {
-	char		*dup;
-	char		tmp;
-	size_t		start;
-	size_t		end;
+	size_t		i;
 
-	dup = ft_strdup(s);
-	start = 0;
-	end = ft_strlen(dup) - 1;
-	while (dup && dup[start] && start < end)
-	{
-		tmp = dup[start];
-		dup[start++] = dup[end];
-		dup[end--] = tmp;
-	}
-	ft_memdel((void**)&s);
-	return (dup);
+	i = 0;
+	while (s && i < size)
+		s[i++] = c;
+	return (s);
 }

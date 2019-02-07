@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclen.c                                       :+:      :+:    :+:   */
+/*   ft_lltoabase_unsigned.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/23 12:25:27 by judumay           #+#    #+#             */
-/*   Updated: 2019/01/25 13:10:22 by judumay          ###   ########.fr       */
+/*   Created: 2019/01/23 12:25:21 by judumay           #+#    #+#             */
+/*   Updated: 2019/02/07 10:35:27 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-size_t		ft_strclen(const char *s, char c)
+char	*ft_lltoabase_unsigned(unsigned long long nbr, int base)
 {
-	size_t	i;
+	char			*s;
+	char			tmp;
 
-	i = 0;
-	while (s && *s && *s != c)
+	s = ft_strnew(0);
+	if (!nbr)
+		s = ft_stradd_leakless(s, '0');
+	while (nbr && base > 1 && base < 37)
 	{
-		++s;
-		++i;
+		tmp = (char)(nbr % (unsigned)base);
+		if (tmp > 9)
+			tmp += 'a' - 10;
+		else
+			tmp += '0';
+		s = ft_stradd_leakless(s, (char)tmp);
+		nbr /= (unsigned)base;
 	}
-	return (i);
+	return ((s = ft_strrev_leakless(s)));
 }

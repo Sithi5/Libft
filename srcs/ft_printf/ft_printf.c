@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtoupper_leakless.c                           :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/23 12:25:58 by judumay           #+#    #+#             */
-/*   Updated: 2019/01/23 12:25:59 by judumay          ###   ########.fr       */
+/*   Created: 2019/01/23 12:05:53 by anmauffr          #+#    #+#             */
+/*   Updated: 2019/02/07 10:44:37 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <ftprintf.h>
 
-char	*ft_strtoupper_leakless(char *s)
+int		ft_printf(char *format, ...)
 {
-	char	*dup;
-	int		i;
+	__int32_t	ret;
+	t_printf	*p;
 
-	dup = ft_strdup(s);
-	i = 0;
-	while (dup && dup[i])
-	{
-		if (dup[i] >= 'a' && dup[i] <= 'z')
-			dup[i] -= 32;
-		++i;
-	}
-	ft_strdel(&s);
-	return (dup);
+	p = NULL;
+	ret = 0;
+	if (!format || !(p = init_t_printf(p)))
+		return (-1);
+	va_start(p->ap, format);
+	ft_printf_display(p, format);
+	va_end(p->ap);
+	ret = p->ret;
+	if (p->error == 1)
+		ret = -1;
+	reset_t_printf(p);
+	del_t_printf(p);
+	return (ret);
 }

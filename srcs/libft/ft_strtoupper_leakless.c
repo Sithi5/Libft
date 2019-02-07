@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pow.c                                           :+:      :+:    :+:   */
+/*   ft_strtoupper_leakless.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/24 09:54:13 by judumay           #+#    #+#             */
-/*   Updated: 2019/01/24 09:54:23 by judumay          ###   ########.fr       */
+/*   Created: 2019/01/23 12:25:58 by judumay           #+#    #+#             */
+/*   Updated: 2019/02/07 10:35:27 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-int		ft_pow(int x, int y)
+char	*ft_strtoupper_leakless(char *s)
 {
-	int		ret;
-	int		neg;
+	char	*dup;
+	int		i;
 
-	neg = y > 0 ? 0 : 1;
-	ret = 1;
-	if (x == 1 || y == 0)
-		return (1);
-	else if (x == 0)
-		return (0);
-	if (neg)
-		y = -y;
-	while (y)
+	dup = ft_strdup(s);
+	i = 0;
+	while (dup && dup[i])
 	{
-		ret = ret * x;
-		y--;
+		if (dup[i] >= 'a' && dup[i] <= 'z')
+			dup[i] -= 32;
+		++i;
 	}
-	if (neg)
-		ret = 1 / ret;
-	return (ret);
+	ft_strdel(&s);
+	return (dup);
 }

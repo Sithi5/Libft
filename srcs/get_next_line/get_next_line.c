@@ -6,11 +6,11 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 10:56:39 by judumay           #+#    #+#             */
-/*   Updated: 2019/01/25 13:15:35 by judumay          ###   ########.fr       */
+/*   Updated: 2019/02/07 10:35:41 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include <get_next_line.h>
 
 static char    *ft_give(int fd, char **s, char *line, char *t)
 {

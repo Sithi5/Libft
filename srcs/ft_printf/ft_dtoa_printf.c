@@ -6,14 +6,12 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 14:39:33 by judumay           #+#    #+#             */
-/*   Updated: 2019/01/25 13:11:40 by judumay          ###   ########.fr       */
+/*   Updated: 2019/02/07 10:47:25 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <ftprintf.h>
 #include <stdlib.h>
-#include <stdio.h>
 
 static int		handle_no_number_after_decimal(int prec, char **s)
 {
@@ -58,7 +56,7 @@ static int		handle_precision(double n, int prec, char **s)
 {
 	char		*s_tmp;
 
-	if ((n = n - (long)n))
+	if ((n = n - (long long)n))
 	{
 		if (prec < 10)
 			precision_smaller_than_10(n, prec, s);
@@ -67,12 +65,12 @@ static int		handle_precision(double n, int prec, char **s)
 			while (prec--)
 			{
 				n *= 10;
-				if (!prec && (long)((n - (long)n) * 10) > 4
-							&& (long)((n - (long)n) * 10) != 9)
+				if (!prec && (long long)((n - (long long)n) * 10) > 4
+							&& (long long)((n - (long long)n) * 10) != 9)
 					n += 1;
 				ft_strcat(*s, s_tmp = ft_ltoa(n));
 				ft_strdel(&s_tmp);
-				n -= (long)n;
+				n -= (long long)n;
 			}
 		}
 	}
@@ -100,31 +98,30 @@ static int		preci(double n, int t, char **s)
 	return (1);
 }
 
-char			*ft_dtoa_printf(double n, int prec, int t)
+char			*ft_dtoa_printf(double n, t_printf *p, int t)
 {
 	char		*s;
 	char		*s_tmp;
 	size_t		len;
 
-	len = ft_longlen(n) + prec + 1;
+	if (p->precision > 16 && (s = (long long)n == 0 ? ft_strdup("0.") :
+	ft_strjoin(p->conv_ret, "\0")))
+	{
+		if (handle_precision(n, p->precision, &s))
+			return (NULL);
+		p->conv_ret = ft_strjoin(s, "");
+		ft_strdel(&s);
+		return (p->conv_ret);
+	}
+	len = ft_longlen(n) + p->precision + 1;
 	if (!(s = (char *)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	s[0] = '\0';
-	if (n < 0 ? 1 : 0)
-	{
-		n = -n;
-		s[0] = '-';
-		s[1] = '\0';
-	}
-	if (prec == 0 && (preci(n, t, &s)))
+	(n < 0 && (n = -n)) ? ft_strcpy(s, "-") : 0;
+	if (p->precision == 0 && (preci(n, t, &s)))
 		return (s);
 	ft_strcat(s, s_tmp = ft_ltoa(n));
 	ft_strdel(&s_tmp);
-	if (prec > -1)
-	{
-		ft_strcat(s, ".");
-		if (handle_precision(n, prec, &s))
-			return (NULL);
-	}
-	return (s);
+	return (p->precision > -1 && (ft_strcat(s, ".")) &&
+	(handle_precision(n, p->precision, &s)) ? NULL : s);
 }

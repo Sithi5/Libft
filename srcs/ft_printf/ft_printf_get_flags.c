@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlen.c                                        :+:      :+:    :+:   */
+/*   ft_printf_get_flags.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/24 09:55:40 by judumay           #+#    #+#             */
-/*   Updated: 2019/01/25 13:14:15 by judumay          ###   ########.fr       */
+/*   Created: 2019/01/23 12:04:56 by anmauffr          #+#    #+#             */
+/*   Updated: 2019/02/07 10:44:37 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <limits.h>
+#include <ftprintf.h>
 
-int		ft_intlen(int n)
+void			ft_printf_get_flag(t_printf *p, const char *format)
 {
-	int		len;
-
-	if (n == INT_MIN)
-		return (11);
-	len = 0;
-	if (n == 0)
-		return (1);
-	if (n < 0)
-	{
-		n = -n;
-		len++;
-	}
-	while (n)
-	{
-		n /= 10;
-		len++;
-	}
-	return (len);
+	if (format[p->index] == '#')
+		p->flags->hash = 1;
+	else if (format[p->index] == '0')
+		p->flags->zero = 1;
+	else if (format[p->index] == '-')
+		p->flags->less = 1;
+	else if (format[p->index] == ' ')
+		p->flags->space = 1;
+	else if (format[p->index] == '+')
+		p->flags->plus = 1;
+	++p->index;
 }

@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lltoabase_unsigned.c                            :+:      :+:    :+:   */
+/*   ft_intlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/23 12:25:21 by judumay           #+#    #+#             */
-/*   Updated: 2019/01/23 12:25:23 by judumay          ###   ########.fr       */
+/*   Created: 2019/01/24 09:55:40 by judumay           #+#    #+#             */
+/*   Updated: 2019/02/07 10:35:27 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
+#include <limits.h>
 
-char	*ft_lltoabase_unsigned(unsigned long long nbr, int base)
+int		ft_intlen(int n)
 {
-	char			*s;
-	char			tmp;
+	int		len;
 
-	s = ft_strnew(0);
-	if (!nbr)
-		s = ft_stradd_leakless(s, '0');
-	while (nbr && base > 1 && base < 37)
+	if (n == INT_MIN)
+		return (11);
+	len = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
 	{
-		tmp = (char)(nbr % (unsigned)base);
-		if (tmp > 9)
-			tmp += 'a' - 10;
-		else
-			tmp += '0';
-		s = ft_stradd_leakless(s, (char)tmp);
-		nbr /= (unsigned)base;
+		n = -n;
+		len++;
 	}
-	return ((s = ft_strrev_leakless(s)));
+	while (n)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
 }
