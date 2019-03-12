@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_get_flags.c                              :+:      :+:    :+:   */
+/*   ft_lstlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/11 17:59:30 by judumay           #+#    #+#             */
-/*   Updated: 2019/03/11 17:59:31 by judumay          ###   ########.fr       */
+/*   Created: 2019/02/20 00:52:33 by judumay           #+#    #+#             */
+/*   Updated: 2019/02/20 00:52:47 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ftprintf.h>
+#include "libft.h"
 
-void			ft_printf_get_flag(t_printf *p, const char *format)
+int		ft_lstlen(t_list *beg)
 {
-	if (format[p->index] == '#')
-		p->flags->hash = 1;
-	else if (format[p->index] == '0')
-		p->flags->zero = 1;
-	else if (format[p->index] == '-')
-		p->flags->less = 1;
-	else if (format[p->index] == ' ')
-		p->flags->space = 1;
-	else if (format[p->index] == '+')
-		p->flags->plus = 1;
-	++p->index;
+	t_list		*tmp;
+	int			i;
+
+	i = 0;
+	if (beg == NULL)
+		return (0);
+	tmp = beg;
+	while (tmp)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	return (i);
 }
