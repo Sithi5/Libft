@@ -1,23 +1,18 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: mabouce <mabouce@student.42.fr>            +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/03/11 17:58:12 by judumay           #+#    #+#              #
-#    Updated: 2019/05/20 17:33:34 by mabouce          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+#!/bin/bash
 
 SHELL = bash
 
 # Executable name, can be change
 NAME = libft.a
 
+#Visual
+VISUAL				=	yes
+VISUALNUM			=	2
+
 #choose compile mode, default = -Wall -Wextra -Werror
 SANITIZE			=	no
-WEVERYTHING			=	no
+NOERROR				=	yes
+NOFLAG				=	no
 
 # Sources names
 SRCS_NAME = 		libft/ft_atoi.c \
@@ -135,7 +130,8 @@ SRCS_NAME = 		libft/ft_atoi.c \
 					ft_printf/ft_printf_s.c \
 					ft_printf/ft_printf_x.c \
 									
-SRCS_MNPF_NAME =	ft_error_miniprintf.c	\
+SRCS_MNPF_NAME =	miniprintf.c			\
+					ft_error_miniprintf.c	\
 					ft_fill.c				\
 					ft_csp.c				\
 					ft_mod.c				\
@@ -143,7 +139,6 @@ SRCS_MNPF_NAME =	ft_error_miniprintf.c	\
 					ft_struct.c				\
 					ft_width.c				\
 					ft_accu.c				\
-					miniprintf.c
 
 
 # Sources, objects and includes path
@@ -163,8 +158,10 @@ OBJS_MNPF	= $(patsubst $(SRCS_MNPF_PATH)%.c, $(OBJS_MNPF_PATH)%.o, $(SRCS_MNPF))
 ifeq ($(SANITIZE),yes)
 	CC				=	gcc -Wall -Wextra -Werror -fsanitize=address \
 						-Wall -Wextra -Werror
-else ifeq ($(WEVERYTHING),yes)
-	CC				=	gcc -Wall -Wextra -Weverything
+else ifeq ($(NOERROR),yes)
+	CC				=	gcc -Wall -Wextra
+else ifeq ($(NOFLAG),yes)
+	CC				=	gcc
 else
 	CC				=	gcc -Wall -Wextra -Werror
 endif
@@ -204,19 +201,30 @@ verife = 0
 
 all: $(NAME)
 
-$(NAME): $(OBJS_MNPF) $(OBJS) 
-	@ar rc $(NAME) $(OBJS_MNPF) $(OBJS) 
+$(NAME): $(OBJS) 
+	@ar rc $(NAME) $(OBJS) 
 	@ranlib $(NAME)
 	@echo -en "$(_GREEN)\t [OK]$(_DEF)\n\n"
 ifeq ($(SANITIZE),yes)
 	@echo "Génération en mode sanitize"
-else ifeq ($(WEVERYTHING),yes)
-	@echo "Génération en mode weverything"
+else ifeq ($(NOERROR),yes)
+	@echo "Génération en mode noerror"
+else ifeq ($(NOFLAG),yes)
+	@echo "Génération en mode noflag"
 else
 	@echo "Génération en mode release"
 endif
+ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 1 ]] && echo true ), true)
+	@echo "VISUAL VERSION 1"
+endif
+ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
+	@echo "VISUAL VERSION 2"
+endif
+
 
 $(OBJS_MNPF_PATH)%.o: $(SRCS_MNPF_PATH)%.c
+
+ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 1 ]] && echo true ), true)
 	@if [[ $(verif) -eq 0 ]]; then printf "\n$(_GRAS)$(_CYAN)|===========================================>  miniprintf   |============================================>$(_DEF)\n";\
 	else printf "\e[1A"; fi
 	$(eval FNCT = $(words $(SRCS_MNPF)))
@@ -224,10 +232,18 @@ $(OBJS_MNPF_PATH)%.o: $(SRCS_MNPF_PATH)%.c
 	$(eval PCR = $(shell echo "$(verif) / $(FNCT) * 1000" | bc -l))
 	@printf " \n$(_GREEN)[%4d%%]\t$(_DEF)%-40s $(_DEF)👉\t\t$(_GREEN) %-40s$(_DEF)" $(shell echo $(PCR) | sed -E "s:\.[0-9]{20}::") $< $@
 	@printf "$(_DEF)"
+endif
+ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
+	@echo "$(_END)$(_GREEN)[OK]\t$(_UNDER)$(_YELLOW)	\
+	COMPILE :$(_END)$(_BOLD)$(_WHITE)\t$<"
+endif
+
 	@mkdir -p objs/miniprintf
 	@$(CC) $(INCLUDES) -o $@ -c $<
 
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.c
+
+ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 1 ]] && echo true ), true)
 	@if [[ $(verife) -eq 0 ]]; then printf "\n$(_GRAS)$(_CYAN)|===========================================>  $(NAME)   |============================================>$(_DEF)\n";\
 	else printf "\e[1A"; fi
 	$(eval FNCT = $(words $(SRCS)))
@@ -235,6 +251,12 @@ $(OBJS_PATH)%.o: $(SRCS_PATH)%.c
 	$(eval PCR = $(shell echo "$(verife) / $(FNCT) * 1000" | bc -l))
 	@printf " \n$(_GREEN)[%4d%%]\t$(_DEF)%-40s $(_DEF)👉\t\t$(_GREEN) %-40s$(_DEF)" $(shell echo $(PCR) | sed -E "s:\.[0-9]{20}::") $< $@
 	@printf "$(_DEF)"
+endif
+ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
+	@echo "$(_END)$(_GREEN)[OK]\t$(_UNDER)$(_YELLOW)	\
+	COMPILE :$(_END)$(_BOLD)$(_WHITE)\t$<"
+endif
+
 	@mkdir -p objs/libft
 	@mkdir -p objs/get_next_line
 	@mkdir -p objs/ft_printf
