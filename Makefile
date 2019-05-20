@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: judumay <judumay@student.42.fr>            +#+  +:+       +#+         #
+#    By: mabouce <mabouce@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/11 17:58:12 by judumay           #+#    #+#              #
-#    Updated: 2019/03/11 17:58:13 by judumay          ###   ########.fr        #
+#    Updated: 2019/05/20 17:33:34 by mabouce          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,130 +15,160 @@ SHELL = bash
 # Executable name, can be change
 NAME = libft.a
 
+#choose compile mode, default = -Wall -Wextra -Werror
+SANITIZE			=	no
+WEVERYTHING			=	no
+
 # Sources names
-SRCS_NAME = libft/ft_atoi.c \
-			libft/ft_bzero.c \
-			libft/ft_create_elem.c \
-			libft/ft_isalnum.c \
-			libft/ft_isalpha.c \
-			libft/ft_isascii.c \
-			libft/ft_isblank.c \
-			libft/ft_iscntrl.c \
-			libft/ft_isdigit.c \
-			libft/ft_isgraph.c \
-			libft/ft_isprint.c \
-			libft/ft_itoa.c \
-			libft/ft_lltoabase_signed.c \
-			libft/ft_lltoabase_signless.c \
-			libft/ft_lltoabase_unsigned.c \
-			libft/ft_lstadd.c \
-			libft/ft_lstdel.c \
-			libft/ft_lstdelone.c \
-			libft/ft_lstiter.c \
-			libft/ft_lstmap.c \
-			libft/ft_lstnew.c \
-			libft/ft_memalloc.c \
-			libft/ft_memccpy.c \
-			libft/ft_memchr.c \
-			libft/ft_memcmp.c \
-			libft/ft_memcpy.c \
-			libft/ft_memdel.c \
-			libft/ft_memmove.c \
-			libft/ft_memset.c \
-			libft/ft_printtab_nb.c \
-			libft/ft_printtab_str.c \
-			libft/ft_putchar.c \
-			libft/ft_putchar_fd.c \
-			libft/ft_putcharerr.c \
-			libft/ft_putendl.c \
-			libft/ft_putendl_fd.c \
-			libft/ft_putendlerr.c \
-			libft/ft_putnbr.c \
-			libft/ft_putnbr_fd.c \
-			libft/ft_putnbrerr.c \
-			libft/ft_putstr.c \
-			libft/ft_putstr_fd.c \
-			libft/ft_putstrerr.c \
-			libft/ft_strcat.c \
-			libft/ft_strchr.c \
-			libft/ft_strclen.c \
-			libft/ft_strclr.c \
-			libft/ft_strcmp.c \
-			libft/ft_strcpy.c \
-			libft/ft_strdel.c \
-			libft/ft_strdup.c \
-			libft/ft_strequ.c \
-			libft/ft_strfill.c \
-			libft/ft_striter.c \
-			libft/ft_striteri.c \
-			libft/ft_strjoin.c \
-			libft/ft_strlcat.c \
-			libft/ft_strlen.c \
-			libft/ft_strmap.c \
-			libft/ft_strmapi.c \
-			libft/ft_strncat.c \
-			libft/ft_strncmp.c \
-			libft/ft_strncpy.c \
-			libft/ft_strnequ.c \
-			libft/ft_strnew.c \
-			libft/ft_strnstr.c \
-			libft/ft_strrchr.c \
-			libft/ft_strsplit.c \
-			libft/ft_strstr.c \
-			libft/ft_strsub.c \
-			libft/ft_strsub_leakless.c \
-			libft/ft_strtok.c \
-			libft/ft_strtoupper_leakless.c \
-			libft/ft_strtrim.c \
-			libft/ft_tolower.c \
-			libft/ft_toupper.c \
-			libft/ft_strrev_leakless.c \
-			libft/ft_stradd_leakless.c \
-			libft/ft_dtoa.c \
-			libft/ft_ltoa.c \
-			libft/ft_longlen.c \
-			libft/ft_pow.c \
-			libft/ft_intlen.c \
-			libft/ft_atol.c \
-			libft/ft_lstlen.c \
-			get_next_line/get_next_line.c \
-			ft_printf/ft_printf.c \
-			ft_printf/ft_printf_c.c \
-			ft_printf/ft_printf_display.c \
-			ft_printf/ft_printf_f.c \
-			ft_printf/ft_printf_get_conv.c \
-			ft_printf/ft_printf_get_flags.c \
-			ft_printf/ft_printf_conv.c \
-			ft_printf/ft_printf_d.c \
-			ft_printf/ft_printf_get_modifier.c \
-			ft_printf/ft_printf_get_precision.c \
-			ft_printf/ft_printf_get_width.c \
-			ft_printf/ft_printf_no_conv.c \
-			ft_printf/ft_printf_o.c \
-			ft_printf/ft_printf_p.c \
-			ft_printf/ft_printf_parsing.c \
-			ft_printf/all_for_p.c \
-			ft_printf/ft_dtoa_printf.c \
-			ft_printf/ft_printf_f_suite.c \
-			ft_printf/ft_printf_u.c \
-			ft_printf/ft_printf_percent.c \
-			ft_printf/ft_printf_s.c \
-			ft_printf/ft_printf_x.c 
+SRCS_NAME = 		libft/ft_atoi.c \
+					libft/ft_bzero.c \
+					libft/ft_create_elem.c \
+					libft/ft_isalnum.c \
+					libft/ft_isalpha.c \
+					libft/ft_isascii.c \
+					libft/ft_isblank.c \
+					libft/ft_iscntrl.c \
+					libft/ft_isdigit.c \
+					libft/ft_isgraph.c \
+					libft/ft_isprint.c \
+					libft/ft_itoa.c \
+					libft/ft_lltoa.c				\
+					libft/ft_lltoabase_signed.c 	\
+					libft/ft_lltoabase_signless.c 	\
+					libft/ft_lltoabase_unsigned.c 	\
+					libft/ft_lstadd.c \
+					libft/ft_lstdel.c \
+					libft/ft_lstdelone.c \
+					libft/ft_lstiter.c \
+					libft/ft_lstmap.c \
+					libft/ft_lstnew.c \
+					libft/ft_memalloc.c \
+					libft/ft_memccpy.c \
+					libft/ft_memchr.c \
+					libft/ft_memcmp.c \
+					libft/ft_memcpy.c \
+					libft/ft_memdel.c \
+					libft/ft_memmove.c \
+					libft/ft_memset.c \
+					libft/ft_printtab_nb.c \
+					libft/ft_printtab_str.c \
+					libft/ft_putchar.c \
+					libft/ft_putchar_fd.c \
+					libft/ft_putcharerr.c \
+					libft/ft_putendl.c \
+					libft/ft_putendl_fd.c \
+					libft/ft_putendlerr.c \
+					libft/ft_putnbr.c \
+					libft/ft_putnbr_fd.c \
+					libft/ft_putnbrerr.c \
+					libft/ft_putstr.c \
+					libft/ft_putstr_fd.c \
+					libft/ft_putstrerr.c \
+					libft/ft_strcat.c \
+					libft/ft_strchr.c \
+					libft/ft_strclen.c \
+					libft/ft_strclr.c \
+					libft/ft_strcmp.c \
+					libft/ft_strcpy.c \
+					libft/ft_strdel.c \
+					libft/ft_strdup.c \
+					libft/ft_strdupd.c \
+					libft/ft_strequ.c \
+					libft/ft_strfill.c \
+					libft/ft_striter.c \
+					libft/ft_striteri.c \
+					libft/ft_strjoin.c \
+					libft/ft_strjoind.c \
+					libft/ft_strdjoind.c \
+					libft/ft_strlcat.c \
+					libft/ft_strlen.c \
+					libft/ft_strmap.c \
+					libft/ft_strmapi.c \
+					libft/ft_strncat.c \
+					libft/ft_strncmp.c \
+					libft/ft_strncpy.c \
+					libft/ft_strnequ.c \
+					libft/ft_strnew.c \
+					libft/ft_strnstr.c \
+					libft/ft_strrchr.c \
+					libft/ft_strsplit.c \
+					libft/ft_strstr.c \
+					libft/ft_strsub.c \
+					libft/ft_strsub_leakless.c \
+					libft/ft_strtok.c \
+					libft/ft_strtoupper_leakless.c \
+					libft/ft_strtrim.c \
+					libft/ft_tolower.c \
+					libft/ft_toupper.c \
+					libft/ft_strrev_leakless.c \
+					libft/ft_stradd_leakless.c \
+					libft/ft_dtoa.c \
+					libft/ft_ltoa.c \
+					libft/ft_longlen.c \
+					libft/ft_pow.c \
+					libft/ft_intlen.c \
+					libft/ft_atol.c \
+					libft/ft_lstlen.c 				\
+													\
+					get_next_line/get_next_line.c 	\
+													\
+					ft_printf/ft_printf.c \
+					ft_printf/ft_printf_c.c \
+					ft_printf/ft_printf_display.c \
+					ft_printf/ft_printf_f.c \
+					ft_printf/ft_printf_get_conv.c \
+					ft_printf/ft_printf_get_flags.c \
+					ft_printf/ft_printf_conv.c \
+					ft_printf/ft_printf_d.c \
+					ft_printf/ft_printf_get_modifier.c \
+					ft_printf/ft_printf_get_precision.c \
+					ft_printf/ft_printf_get_width.c \
+					ft_printf/ft_printf_no_conv.c \
+					ft_printf/ft_printf_o.c \
+					ft_printf/ft_printf_p.c \
+					ft_printf/ft_printf_parsing.c \
+					ft_printf/all_for_p.c \
+					ft_printf/ft_dtoa_printf.c \
+					ft_printf/ft_printf_f_suite.c \
+					ft_printf/ft_printf_u.c \
+					ft_printf/ft_printf_percent.c \
+					ft_printf/ft_printf_s.c \
+					ft_printf/ft_printf_x.c \
+									
+SRCS_MNPF_NAME =	ft_error_miniprintf.c	\
+					ft_fill.c				\
+					ft_csp.c				\
+					ft_mod.c				\
+					ft_diouxx.c				\
+					ft_struct.c				\
+					ft_width.c				\
+					ft_accu.c				\
+					miniprintf.c
 
 
 # Sources, objects and includes path
-SRCS_PATH = ./srcs/
-OBJS_PATH = ./objs/
-INCS_PATH = ./includes/
+SRCS_PATH 		= 	./srcs/
+SRCS_MNPF_PATH	= 	./srcs/miniprintf/
+OBJS_PATH 		= 	./objs/
+OBJS_MNPF_PATH 	= 	./objs/miniprintf/
+INCS_PATH 		= 	./includes/
 
 # Sources and objects
-SRCS = $(addprefix $(SRCS_PATH), $(SRCS_NAME))
-OBJS = $(patsubst $(SRCS_PATH)%.c, $(OBJS_PATH)%.o, $(SRCS))
+SRCS		= $(addprefix $(SRCS_PATH), $(SRCS_NAME))
+SRCS_MNPF	= $(addprefix $(SRCS_MNPF_PATH), $(SRCS_MNPF_NAME))
+OBJS		= $(patsubst $(SRCS_PATH)%.c, $(OBJS_PATH)%.o, $(SRCS))
+OBJS_MNPF	= $(patsubst $(SRCS_MNPF_PATH)%.c, $(OBJS_MNPF_PATH)%.o, $(SRCS_MNPF))
 
 # Compilation
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-CPPFLAGS = -I $(INCS_PATH)
+ifeq ($(SANITIZE),yes)
+	CC				=	gcc -Wall -Wextra -Werror -fsanitize=address \
+						-Wall -Wextra -Werror
+else ifeq ($(WEVERYTHING),yes)
+	CC				=	gcc -Wall -Wextra -Weverything
+else
+	CC				=	gcc -Wall -Wextra -Werror
+endif
+INCLUDES = -I $(INCS_PATH)
 LDFLAGS = ./libft/
 
 # Text format
@@ -169,26 +199,46 @@ _ICYAN = $'\033[46m
 _IGREY = $'\033[47m
 
 verif = 0
+verife = 0
+
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	@ar rc $(NAME) $(OBJS)
+$(NAME): $(OBJS_MNPF) $(OBJS) 
+	@ar rc $(NAME) $(OBJS_MNPF) $(OBJS) 
 	@ranlib $(NAME)
 	@echo -en "$(_GREEN)\t [OK]$(_DEF)\n\n"
+ifeq ($(SANITIZE),yes)
+	@echo "Génération en mode sanitize"
+else ifeq ($(WEVERYTHING),yes)
+	@echo "Génération en mode weverything"
+else
+	@echo "Génération en mode release"
+endif
 
-$(OBJS_PATH)%.o: $(SRCS_PATH)%.c
-	@if [[ $(verif) -eq 0 ]]; then printf "\n$(_GRAS)$(_CYAN)|===========================================>  $(NAME)   |============================================>$(_DEF)\n";\
+$(OBJS_MNPF_PATH)%.o: $(SRCS_MNPF_PATH)%.c
+	@if [[ $(verif) -eq 0 ]]; then printf "\n$(_GRAS)$(_CYAN)|===========================================>  miniprintf   |============================================>$(_DEF)\n";\
 	else printf "\e[1A"; fi
-	$(eval FNCT = $(words $(SRCS)))
+	$(eval FNCT = $(words $(SRCS_MNPF)))
 	$(eval verif = $(shell echo $(verif) + 1 | bc ))
 	$(eval PCR = $(shell echo "$(verif) / $(FNCT) * 1000" | bc -l))
 	@printf " \n$(_GREEN)[%4d%%]\t$(_DEF)%-40s $(_DEF)👉\t\t$(_GREEN) %-40s$(_DEF)" $(shell echo $(PCR) | sed -E "s:\.[0-9]{20}::") $< $@
+	@printf "$(_DEF)"
+	@mkdir -p objs/miniprintf
+	@$(CC) $(INCLUDES) -o $@ -c $<
+
+$(OBJS_PATH)%.o: $(SRCS_PATH)%.c
+	@if [[ $(verife) -eq 0 ]]; then printf "\n$(_GRAS)$(_CYAN)|===========================================>  $(NAME)   |============================================>$(_DEF)\n";\
+	else printf "\e[1A"; fi
+	$(eval FNCT = $(words $(SRCS)))
+	$(eval verife = $(shell echo $(verife) + 1 | bc ))
+	$(eval PCR = $(shell echo "$(verife) / $(FNCT) * 1000" | bc -l))
+	@printf " \n$(_GREEN)[%4d%%]\t$(_DEF)%-40s $(_DEF)👉\t\t$(_GREEN) %-40s$(_DEF)" $(shell echo $(PCR) | sed -E "s:\.[0-9]{20}::") $< $@
+	@printf "$(_DEF)"
 	@mkdir -p objs/libft
 	@mkdir -p objs/get_next_line
 	@mkdir -p objs/ft_printf
-	@printf "$(_DEF)"
-	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
+	@$(CC) $(INCLUDES) -o $@ -c $<
 
 clean:
 	@echo

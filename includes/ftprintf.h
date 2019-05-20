@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ftprintf.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mabouce <mabouce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/11 17:58:30 by judumay           #+#    #+#             */
-/*   Updated: 2019/03/11 17:58:32 by judumay          ###   ########.fr       */
+/*   Updated: 2019/05/20 16:53:18 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdarg.h>
 # include <wchar.h>
-# include <libft.h>
+# include "libft.h"
 
 typedef enum	e_printf_modifier
 {
