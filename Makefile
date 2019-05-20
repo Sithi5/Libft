@@ -201,8 +201,8 @@ verife = 0
 
 all: $(NAME)
 
-$(NAME): $(OBJS) 
-	@ar rc $(NAME) $(OBJS) 
+$(NAME): $(OBJS) $(OBJS_MNPF)
+	@ar rc $(NAME) $(OBJS) $(OBJS_MNPF)
 	@ranlib $(NAME)
 	@echo -en "$(_GREEN)\t [OK]$(_DEF)\n\n"
 ifeq ($(SANITIZE),yes)
@@ -220,7 +220,6 @@ endif
 ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
 	@echo "VISUAL VERSION 2"
 endif
-
 
 $(OBJS_MNPF_PATH)%.o: $(SRCS_MNPF_PATH)%.c
 
