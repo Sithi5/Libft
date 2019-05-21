@@ -289,15 +289,15 @@ endif
 	@$(CC) -I $(INCLUDES_PATH) -o $@ -c $<
 
 clean:
-	@rm -rf $(OBJS_PATH) 2> /dev/null || true
 ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
 	@echo "$(_YELLOW)Remove :\t$(_RED)" $(LDFLAGS)objs/"$(_END)"
 endif
+	@rm -rf $(OBJS_PATH) 2> /dev/null || true
 
 fclean: clean
 	@rm -f $(NAME)
 ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
-	@echo "$(_YELLOW)Remove :\t$(_RED)" $(LDFLAGS)$(NAME)"$(_END)"
+	@echo "$(_YELLOW)Remove :\t$(_RED)" $(LDFLAGS)$(NAME)" $(_END)"
 endif
 
 re: fclean all
