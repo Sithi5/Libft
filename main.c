@@ -5,6 +5,7 @@
 int     main(int ac, char **av)
 {
     int     i = 0;
+    char    *str;
     t_btree *tree;
 
     printf("start testing\n");
@@ -19,7 +20,9 @@ int     main(int ac, char **av)
     btree_insert_data(&tree, (void *)-10, &btree_int_cmp);
     printf("test num %i : print tree\n", i++);  
     btree_print(tree);
-    printf("test num %i : ft_printf\n", i++);  
-    ft_printf("test hehe\n%s\n", "tout vas bien");
+    printf("test num %i : ft_printf + gnl\n", i++);
+    ft_printf("Waiting input for GNL : \n");
+    get_next_line(0, &str);
+    ft_printf("\nGNL = %s\n", str);
     return (0);
 }
