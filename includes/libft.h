@@ -23,6 +23,8 @@
 typedef struct		s_list
 {
 	void			*content;
+	void			*data;
+	int				i;
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
@@ -102,13 +104,36 @@ void				ft_putstr_fd(char const *s, int fd);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 
+t_list				*ft_create_elem(void *data);
+t_list				*ft_create_elem_int(int i);
+int					ft_list_push_back(t_list **begin_list, void *data);
+int					ft_list_push_back_int(t_list **begin_list, int i);
+int					ft_list_push_front(t_list **begin_list, void *data);
+int					ft_list_push_front_int(t_list **begin_list, int i);
+int					ft_list_size(t_list *begin_list);
+void				ft_list_print_int(t_list *begin_list);
+void				ft_list_print_str(t_list *begin_list);
+t_list				*ft_list_last(t_list *begin_list);
+void				ft_list_remove_last_int(t_list **begin_list);
+void				ft_list_remove_last_data(t_list **begin_list);
+void				ft_list_remove_middle_int(t_list **begin_list
+					, t_list *elem);
+void				ft_list_remove_middle_data(t_list **begin_list
+					, t_list *elem);
+void				ft_list_remove_first_int(t_list **begin_list);
+void				ft_list_remove_first_data(t_list **begin_list);
+t_list				*ft_list_push_params(int ac, char **av);
+void				ft_list_clear(t_list **begin_list);
+void				ft_list_clear_data(t_list **begin_list);
+t_list				*ft_list_at(t_list *begin_list, unsigned int nbr);
+void				ft_list_reverse(t_list **begin_list);
+void				ft_list_foreach(t_list *begin_list, void (*f)(void *));
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstadd(t_list **alst, t_list *new);
-t_list				*ft_create_elem(void *data);
 
 void				ft_putcharerr(char c);
 void				ft_putstrerr(char *str);

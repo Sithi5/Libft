@@ -1,6 +1,4 @@
-#!/bin/bash
-
-SHELL = bash
+SHELL = sh
 
 # Executable name, can be change
 NAME = libft.a
@@ -9,151 +7,171 @@ NAME = libft.a
 VISUAL				=	yes
 VISUALNUM			=	2
 
-#choose compile mode, default = -Wall -Wextra -Werror
+#Compilation Modes. Default= -Wall -Wextra -Werror
 SANITIZE			=	no
-NOERROR				=	yes
+NOERROR				=	no
 NOFLAG				=	no
 
 # Sources names
-SRCS_LIBFT_NAME		= 	ft_bzero.c \
-						ft_isalnum.c \
-						ft_isalpha.c \
-						ft_isascii.c \
-						ft_isblank.c \
-						ft_iscntrl.c \
-						ft_isdigit.c \
-						ft_isgraph.c \
-						ft_isprint.c \
-										\
-						ft_atoi.c \
-						ft_dtoa.c \
-						ft_ltoa.c \
-						ft_atol.c \
-						ft_itoa.c \
-						ft_lltoa.c				\
-						ft_lltoabase_signed.c 	\
-						ft_lltoabase_signless.c 	\
-						ft_lltoabase_unsigned.c 	\
-													\
-									\
-						ft_memalloc.c \
-						ft_memccpy.c \
-						ft_memchr.c \
-						ft_memcmp.c \
-						ft_memcpy.c \
-						ft_memdel.c \
-						ft_memmove.c \
-						ft_memset.c \
-									\
-						ft_printtab_nb.c \
-						ft_printtab_str.c \
-											\
-						ft_putchar.c \
-						ft_putchar_fd.c \
-						ft_putcharerr.c \
-						ft_putendl.c \
-						ft_putendl_fd.c \
-						ft_putendlerr.c \
-						ft_putnbr.c \
-						ft_putnbr_fd.c \
-						ft_putnbrerr.c \
-						ft_putstr.c \
-						ft_putstr_fd.c \
-						ft_putstrerr.c \
-										\
-						ft_strcat.c \
-						ft_strchr.c \
-						ft_strclen.c \
-						ft_strclr.c \
-						ft_strcmp.c \
-						ft_strcpy.c \
-						ft_strdel.c \
-						ft_strdup.c \
-						ft_strdupd.c \
-						ft_strequ.c \
-						ft_strfill.c \
-						ft_striter.c \
-						ft_striteri.c \
-						ft_strjoin.c \
-						ft_strjoind.c \
-						ft_strdjoind.c \
-						ft_strlcat.c \
-						ft_strlen.c \
-						ft_strmap.c \
-						ft_strmapi.c \
-						ft_strncat.c \
-						ft_strncmp.c \
-						ft_strncpy.c \
-						ft_strnequ.c \
-						ft_strnew.c \
-						ft_strnstr.c \
-						ft_strrchr.c \
-						ft_strsplit.c \
-						ft_strstr.c \
-						ft_strsub.c \
-						ft_strsub_leakless.c \
-						ft_strtok.c \
-						ft_strtoupper_leakless.c \
-						ft_strtrim.c \
-						ft_tolower.c \
-						ft_toupper.c \
-						ft_strrev_leakless.c \
-						ft_stradd_leakless.c \
-						ft_longlen.c \
-						ft_pow.c \
-						ft_intlen.c \
-									\
-						ft_create_elem.c \
-						ft_lstadd.c \
-						ft_lstdel.c \
-						ft_lstdelone.c \
-						ft_lstiter.c \
-						ft_lstmap.c \
-						ft_lstnew.c \
-						ft_lstlen.c 		\
-											\
-						btree_apply_infix.c	\
-						btree_apply_prefix.c\
-						btree_apply_suffix.c\
-						btree_create_node.c	\
-						btree_lvl_count.c	\
-						btree_insert_data.c	\
-						btree_int_cmp.c		\
-						btree_print.c		\
-											\
-						get_next_line.c 	\
-													
-SRCS_FT_PRINTF_NAME =	ft_printf.c \
-						ft_printf_c.c \
-						ft_printf_display.c \
-						ft_printf_f.c \
-						ft_printf_get_conv.c \
-						ft_printf_get_flags.c \
-						ft_printf_conv.c \
-						ft_printf_d.c \
-						ft_printf_get_modifier.c \
-						ft_printf_get_precision.c \
-						ft_printf_get_width.c \
-						ft_printf_no_conv.c \
-						ft_printf_o.c \
-						ft_printf_p.c \
-						ft_printf_parsing.c \
-						all_for_p.c \
-						ft_dtoa_printf.c \
-						ft_printf_f_suite.c \
-						ft_printf_u.c \
-						ft_printf_percent.c \
-						ft_printf_s.c \
+						#	LIBFT
+SRCS_LIBFT_NAME		= 	is/ft_isalnum.c						\
+						is/ft_isalpha.c						\
+						is/ft_isascii.c						\
+						is/ft_isblank.c						\
+						is/ft_iscntrl.c						\
+						is/ft_isdigit.c						\
+						is/ft_isgraph.c						\
+						is/ft_isprint.c						\
+															\
+						conv/ft_atoi.c 						\
+						conv/ft_atol.c 						\
+						conv/ft_dtoa.c 						\
+						conv/ft_itoa.c 						\
+						conv/ft_lltoa.c						\
+						conv/ft_lltoabase_signed.c 			\
+						conv/ft_lltoabase_signless.c 		\
+						conv/ft_lltoabase_unsigned.c 		\
+						conv/ft_ltoa.c 						\
+															\
+						mem/ft_bzero.c						\
+						mem/ft_memalloc.c					\
+						mem/ft_memccpy.c					\
+						mem/ft_memchr.c						\
+						mem/ft_memcmp.c 					\
+						mem/ft_memcpy.c 					\
+						mem/ft_memdel.c 					\
+						mem/ft_memmove.c					\
+						mem/ft_memset.c 					\
+															\
+						print/ft_printtab_nb.c				\
+						print/ft_printtab_str.c				\
+															\
+						print/ft_putchar.c					\
+						print/ft_putchar_fd.c				\
+						print/ft_putcharerr.c				\
+						print/ft_putendl.c					\
+						print/ft_putendl_fd.c				\
+						print/ft_putendlerr.c 				\
+						print/ft_putnbr.c 					\
+						print/ft_putnbr_fd.c				\
+						print/ft_putnbrerr.c				\
+						print/ft_putstr.c					\
+						print/ft_putstr_fd.c				\
+						print/ft_putstrerr.c				\
+															\
+						str/ft_strcat.c						\
+						str/ft_strchr.c 					\
+						str/ft_strclen.c 					\
+						str/ft_strclr.c 					\
+						str/ft_strcmp.c 					\
+						str/ft_strcpy.c 					\
+						str/ft_strdel.c 					\
+						str/ft_strdup.c 					\
+						str/ft_strdupd.c 					\
+						str/ft_strequ.c 					\
+						str/ft_strfill.c 					\
+						str/ft_striter.c 					\
+						str/ft_striteri.c 					\
+						str/ft_strjoin.c 					\
+						str/ft_strjoind.c 					\
+						str/ft_strdjoind.c 					\
+						str/ft_strlcat.c 					\
+						str/ft_strlen.c 					\
+						str/ft_strmap.c 					\
+						str/ft_strmapi.c 					\
+						str/ft_strncat.c 					\
+						str/ft_strncmp.c 					\
+						str/ft_strncpy.c 					\
+						str/ft_strnequ.c 					\
+						str/ft_strnew.c 					\
+						str/ft_strnstr.c 					\
+						str/ft_strrchr.c 					\
+						str/ft_strsplit.c 					\
+						str/ft_strstr.c 					\
+						str/ft_strsub.c 					\
+						str/ft_strsub_leakless.c 			\
+						str/ft_strtok.c 					\
+						str/ft_strtoupper_leakless.c 		\
+						str/ft_strtrim.c 					\
+						str/ft_tolower.c 					\
+						str/ft_toupper.c 					\
+						str/ft_strrev_leakless.c 			\
+						str/ft_stradd_leakless.c 			\
+															\
+						int/ft_longlen.c	 				\
+						int/ft_pow.c 						\
+						int/ft_intlen.c 					\
+															\
+						lst/ft_create_elem.c				\
+						lst/ft_create_elem_int.c			\
+						lst/ft_list_push_back.c				\
+						lst/ft_list_push_back_int.c			\
+						lst/ft_list_push_front.c			\
+						lst/ft_list_push_front_int.c		\
+						lst/ft_list_size.c					\
+						lst/ft_list_last.c					\
+						lst/ft_list_remove_last.c			\
+						lst/ft_list_remove_first.c			\
+						lst/ft_list_remove_middle.c			\
+						lst/ft_list_push_params.c			\
+						lst/ft_list_clear.c					\
+						lst/ft_list_clear_data.c			\
+						lst/ft_list_at.c					\
+						lst/ft_list_reverse.c				\
+						lst/ft_list_foreach.c				\
+						lst/ft_list_print.c					\
+						lst/ft_lstadd.c 					\
+						lst/ft_lstdel.c						\
+						lst/ft_lstdelone.c					\
+						lst/ft_lstiter.c					\
+						lst/ft_lstmap.c						\
+						lst/ft_lstnew.c						\
+						lst/ft_lstlen.c						\
+															\
+						btree/btree_apply_infix.c			\
+						btree/btree_apply_prefix.c			\
+						btree/btree_apply_suffix.c			\
+						btree/btree_create_node.c			\
+						btree/btree_lvl_count.c				\
+						btree/btree_insert_data.c			\
+						btree/btree_int_cmp.c				\
+						btree/btree_print.c					\
+															\
+						get_next_line.c 					\
+
+						#	FT_PRINTF
+SRCS_FT_PRINTF_NAME =	ft_printf.c							\
+						ft_printf_c.c						\
+						ft_printf_display.c					\
+						ft_printf_f.c						\
+						ft_printf_get_conv.c				\
+						ft_printf_get_flags.c				\
+						ft_printf_conv.c					\
+						ft_printf_d.c						\
+						ft_printf_get_modifier.c			\
+						ft_printf_get_precision.c			\
+						ft_printf_get_width.c				\
+						ft_printf_no_conv.c					\
+						ft_printf_o.c						\
+						ft_printf_p.c 						\
+						ft_printf_parsing.c 				\
+						all_for_p.c 						\
+						ft_dtoa_printf.c 					\
+						ft_printf_f_suite.c 				\
+						ft_printf_u.c 						\
+						ft_printf_percent.c 				\
+						ft_printf_s.c 						\
 						ft_printf_x.c 
-									
-SRCS_MNPF_NAME 		=	miniprintf.c			\
-						ft_error_miniprintf.c	\
-						ft_fill.c				\
-						ft_csp.c				\
-						ft_mod.c				\
-						ft_diouxx.c				\
-						ft_struct.c				\
-						ft_width.c				\
+
+						#	MINIPRINTF	
+SRCS_MNPF_NAME 		=	miniprintf.c						\
+						ft_error_miniprintf.c				\
+						ft_fill.c							\
+						ft_csp.c							\
+						ft_mod.c							\
+						ft_diouxx.c							\
+						ft_struct.c							\
+						ft_width.c							\
 						ft_accu.c				
 
 
@@ -174,6 +192,7 @@ SRCS_FT_PRINTF	= $(addprefix $(SRCS_FT_PRINTF_PATH), $(SRCS_FT_PRINTF_NAME))
 OBJS_MNPF		= $(patsubst $(SRCS_MNPF_PATH)%.c, $(OBJS_MNPF_PATH)%.o, $(SRCS_MNPF))
 OBJS_LIBFT		= $(patsubst $(SRCS_LIBFT_PATH)%.c, $(OBJS_LIBFT_PATH)%.o, $(SRCS_LIBFT))
 OBJS_FT_PRINTF	= $(patsubst $(SRCS_FT_PRINTF_PATH)%.c, $(OBJS_FT_PRINTF_PATH)%.o, $(SRCS_FT_PRINTF))
+
 # Compilation
 ifeq ($(SANITIZE),yes)
 	CC				=	gcc -Wall -Wextra -Werror -fsanitize=address \
@@ -216,15 +235,11 @@ _IPURPLE = $'\033[45m
 _ICYAN = $'\033[46m
 _IGREY = $'\033[47m
 
-verif = 0
-verife = 0
-
 all: $(NAME)
 
 $(NAME): $(OBJS_LIBFT) $(OBJS_MNPF) $(OBJS_FT_PRINTF)
 	@ar rc $(NAME) $(OBJS_LIBFT) $(OBJS_MNPF) $(OBJS_FT_PRINTF)
 	@ranlib $(NAME)
-	@echo -en "$(_GREEN)\t [OK]$(_DEF)\n\n"
 ifeq ($(SANITIZE),yes)
 	@echo "Génération en mode sanitize"
 else ifeq ($(NOERROR),yes)
@@ -234,24 +249,13 @@ else ifeq ($(NOFLAG),yes)
 else
 	@echo "Génération en mode release"
 endif
-ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 1 ]] && echo true ), true)
-	@echo "VISUAL VERSION 1"
-endif
+
 ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
 	@echo "VISUAL VERSION 2"
 endif
 
 $(OBJS_MNPF_PATH)%.o: $(SRCS_MNPF_PATH)%.c
 
-ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 1 ]] && echo true ), true)
-	@if [[ $(verif) -eq 0 ]]; then printf "\n$(_GRAS)$(_CYAN)|===========================================>  miniprintf   |============================================>$(_DEF)\n";\
-	else printf "\e[1A"; fi
-	$(eval FNCT = $(words $(SRCS_MNPF)))
-	$(eval verif = $(shell echo $(verif) + 1 | bc ))
-	$(eval PCR = $(shell echo "$(verif) / $(FNCT) * 1000" | bc -l))
-	@printf " \n$(_GREEN)[%4d%%]\t$(_DEF)%-40s $(_DEF)👉\t\t$(_GREEN) %-40s$(_DEF)" $(shell echo $(PCR) | sed -E "s:\.[0-9]{20}::") $< $@
-	@printf "$(_DEF)"
-endif
 ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
 	@echo "$(_END)$(_GREEN)[OK]\t$(_UNDER)$(_YELLOW)	\
 	COMPILE :$(_END)$(_BOLD)$(_WHITE)\t$<"
@@ -262,15 +266,6 @@ endif
 
 $(OBJS_FT_PRINTF_PATH)%.o: $(SRCS_FT_PRINTF_PATH)%.c
 
-ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 1 ]] && echo true ), true)
-	@if [[ $(verif) -eq 0 ]]; then printf "\n$(_GRAS)$(_CYAN)|===========================================>  FT_PRINTF   |============================================>$(_DEF)\n";\
-	else printf "\e[1A"; fi
-	$(eval FNCT = $(words $(SRCS_MNPF)))
-	$(eval verif = $(shell echo $(verif) + 1 | bc ))
-	$(eval PCR = $(shell echo "$(verif) / $(FNCT) * 1000" | bc -l))
-	@printf " \n$(_GREEN)[%4d%%]\t$(_DEF)%-40s $(_DEF)👉\t\t$(_GREEN) %-40s$(_DEF)" $(shell echo $(PCR) | sed -E "s:\.[0-9]{20}::") $< $@
-	@printf "$(_DEF)"
-endif
 ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
 	@echo "$(_END)$(_GREEN)[OK]\t$(_UNDER)$(_YELLOW)	\
 	COMPILE :$(_END)$(_BOLD)$(_WHITE)\t$<"
@@ -281,40 +276,35 @@ endif
 
 $(OBJS_LIBFT_PATH)%.o: $(SRCS_LIBFT_PATH)%.c
 
-ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 1 ]] && echo true ), true)
-	@if [[ $(verife) -eq 0 ]]; then printf "\n$(_GRAS)$(_CYAN)|===========================================>  $(NAME)   |============================================>$(_DEF)\n";\
-	else printf "\e[1A"; fi
-	$(eval FNCT = $(words $(SRCS)))
-	$(eval verife = $(shell echo $(verife) + 1 | bc ))
-	$(eval PCR = $(shell echo "$(verife) / $(FNCT) * 1000" | bc -l))
-	@printf " \n$(_GREEN)[%4d%%]\t$(_DEF)%-40s $(_DEF)👉\t\t$(_GREEN) %-40s$(_DEF)" $(shell echo $(PCR) | sed -E "s:\.[0-9]{20}::") $< $@
-	@printf "$(_DEF)"
-endif
 ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
 	@echo "$(_END)$(_GREEN)[OK]\t$(_UNDER)$(_YELLOW)	\
 	COMPILE :$(_END)$(_BOLD)$(_WHITE)\t$<"
 endif
 
-	@mkdir -p objs/libft
+	@mkdir -p objs/libft/is objs/libft/conv objs/libft/str objs/libft/print
+	@mkdir -p objs/libft/mem objs/libft/lst objs/libft/btree objs/libft/int
 	@$(CC) $(INCLUDES) -o $@ -c $<
 
 clean:
-	rm -rf $(OBJS_PATH) 2> /dev/null || true
-	@echo -e "$(_YELLOW)Remove :\t$(_RED)" $(LDFLAGS)objs/
-	@echo -e "$(_END)"
+	@rm -rf $(OBJS_PATH) 2> /dev/null || true
+ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
+	@echo "$(_YELLOW)Remove :\t$(_RED)" $(LDFLAGS)objs/
+	@echo "$(_END)"
+endif
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo -e "$(_YELLOW)Remove :\t$(_RED)" $(LDFLAGS)objs/
-	@echo -e "$(_YELLOW)Remove :\t$(_RED)" $(LDFLAGS)$(NAME)
-	@echo -e "$(_END)"
+ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
+	@echo "$(_YELLOW)Remove :\t$(_RED)" $(LDFLAGS)$(NAME)
+	@echo "$(_END)"
+endif
 
 re: fclean all
 
 norme:
-	@echo -ne "$(_GREEN)"
+	@echo "$(_GREEN)"
 	@norminette $(SRCS_PATH)
 	@norminette $(INCS_PATH)
-	@echo -ne "$(_DEF)"
+	@echo "$(_DEF)"
 
 .PHONY: all clean fclean re norme
