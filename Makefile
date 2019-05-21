@@ -53,6 +53,7 @@ SRCS_LIBFT_NAME		= 	is/ft_isalnum.c						\
 						print/ft_putendl_fd.c				\
 						print/ft_putendlerr.c 				\
 						print/ft_putnbr.c 					\
+						print/ft_putnbrll.c 					\
 						print/ft_putnbr_fd.c				\
 						print/ft_putnbrerr.c				\
 						print/ft_putstr.c					\
@@ -183,7 +184,7 @@ OBJS_PATH			=	./objs/
 OBJS_MNPF_PATH 		= 	./objs/miniprintf/
 OBJS_LIBFT_PATH 	= 	./objs/libft/
 OBJS_FT_PRINTF_PATH = 	./objs/ft_printf/
-INCS_PATH 			= 	./includes/
+INCLUDES_PATH 		= 	./includes/
 
 # Sources and objects
 SRCS_MNPF		= $(addprefix $(SRCS_MNPF_PATH), $(SRCS_MNPF_NAME))
@@ -204,7 +205,8 @@ else ifeq ($(NOFLAG),yes)
 else
 	CC				=	gcc -Wall -Wextra -Werror
 endif
-INCLUDES = -I $(INCS_PATH)
+
+INCLUDES = -I $(INCLUDES_PATH)
 LDFLAGS = ./libft/
 
 # Text format
@@ -240,14 +242,15 @@ all: $(NAME)
 $(NAME): $(OBJS_LIBFT) $(OBJS_MNPF) $(OBJS_FT_PRINTF)
 	@ar rc $(NAME) $(OBJS_LIBFT) $(OBJS_MNPF) $(OBJS_FT_PRINTF)
 	@ranlib $(NAME)
+	@echo "\n"
 ifeq ($(SANITIZE),yes)
-	@echo "Génération en mode sanitize"
+	@echo "LIBFT : Génération en mode sanitize"
 else ifeq ($(NOERROR),yes)
-	@echo "Génération en mode noerror"
+	@echo "LIBFT : Génération en mode noerror"
 else ifeq ($(NOFLAG),yes)
-	@echo "Génération en mode noflag"
+	@echo "LIBFT : Génération en mode noflag"
 else
-	@echo "Génération en mode release"
+	@echo "LIBFT : Génération en mode release"
 endif
 
 ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
@@ -262,7 +265,7 @@ ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
 endif
 
 	@mkdir -p objs/miniprintf
-	@$(CC) $(INCLUDES) -o $@ -c $<
+	@$(CC) -I $(INCLUDES_PATH) -o $@ -c $<
 
 $(OBJS_FT_PRINTF_PATH)%.o: $(SRCS_FT_PRINTF_PATH)%.c
 
@@ -272,7 +275,7 @@ ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
 endif
 
 	@mkdir -p objs/ft_printf
-	@$(CC) $(INCLUDES) -o $@ -c $<
+	@$(CC) -I $(INCLUDES_PATH) -o $@ -c $<
 
 $(OBJS_LIBFT_PATH)%.o: $(SRCS_LIBFT_PATH)%.c
 
@@ -283,20 +286,18 @@ endif
 
 	@mkdir -p objs/libft/is objs/libft/conv objs/libft/str objs/libft/print
 	@mkdir -p objs/libft/mem objs/libft/lst objs/libft/btree objs/libft/int
-	@$(CC) $(INCLUDES) -o $@ -c $<
+	@$(CC) -I $(INCLUDES_PATH) -o $@ -c $<
 
 clean:
 	@rm -rf $(OBJS_PATH) 2> /dev/null || true
 ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
-	@echo "$(_YELLOW)Remove :\t$(_RED)" $(LDFLAGS)objs/
-	@echo "$(_END)"
+	@echo "$(_YELLOW)Remove :\t$(_RED)" $(LDFLAGS)objs/"$(_END)"
 endif
 
 fclean: clean
 	@rm -f $(NAME)
 ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
-	@echo "$(_YELLOW)Remove :\t$(_RED)" $(LDFLAGS)$(NAME)
-	@echo "$(_END)"
+	@echo "$(_YELLOW)Remove :\t$(_RED)" $(LDFLAGS)$(NAME)"$(_END)"
 endif
 
 re: fclean all
