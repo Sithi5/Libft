@@ -34,6 +34,13 @@ typedef struct		s_tab
 	size_t			size;
 }					t_tab;
 
+typedef struct		s_btree
+{
+	struct s_btree	*left;
+	struct s_btree	*right;
+	void			*content;
+}					t_btree;
+
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
@@ -135,5 +142,15 @@ int					ft_longlen(long n);
 int					ft_pow(int x, int y);
 int					ft_intlen(int n);
 int					ft_lstlen(t_list *beg);
+
+t_btree				*btree_create_node(void *content);
+int					btree_int_cmp(void *c1, void *c2);
+void				btree_apply_prefix(t_btree *root, void (*applyf)(void *));
+void				btree_apply_suffix(t_btree *root, void (*applyf)(void *));
+void				btree_apply_infix(t_btree *root, void (*applyf)(void *));
+void				btree_insert_data(t_btree **root, void *content
+					, int (*cmpf)(void *, void *));
+int					btree_lvl_count(t_btree *root);
+void				btree_print(t_btree *root);
 
 #endif
