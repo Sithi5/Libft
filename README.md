@@ -1,8 +1,8 @@
 # Lib C / ft_Printf / Miniprintf
     by Mabouce and Judumay
 
-| Is (8) | Conversion (9) | Memory (9) | Print (14) | String (38) | Integer (3) | Linked List (25) | Binary Tree (8) |
-|:-------|:---------------|:-----------|:-----------|:------------|:------------|:-----------------|:----------------|
+| Is (8) | Conv (9) | Mem (9) | Print (14) | Str (38) | Int (3) | List (25) | BTree (8) |
+|:-------|:---------|:--------|:-----------|:---------|:--------|:----------|:----------|
 | [isalnum](srcs/libft/is/ft_isalnum.c) | [atoi](srcs/libft/conv/ft_atoi.c) | [bzero](srcs/libft/mem/ft_bzero.c) | [printtab_nb](srcs/libft/print/ft_printtab_nb.c) | [strcat](srcs/libft/str/ft_strcat.c) | [intlen](srcs/libft/int/ft_intlen.c) | [create_elem](srcs/libft/ft_create_elem.c) | [btree_apply_infix](srcs/libft/btree/btree_apply_infix.c) |
 | [isalpha](srcs/libft/is/ft_isalpha.c) | [atol](srcs/libft/conv/ft_atol.c) | [memalloc](srcs/libft/mem/ft_memalloc.c) | [printtab_str](srcs/libft/print/ft_printtab_str.c) | [strchr](srcs/libft/str/ft_strchr.c) | [longlen](srcs/libft/int/ft_longlen.c) | [create_elem_int](srcs/libft/lst/ft_create_elem_int.c) | [btree_apply_prefix](srcs/libft/btree/btree_apply_prefix.c) |
 | [isascii](srcs/libft/is/ft_isascii.c) | [dtoa](srcs/libft/conv/ft_dtoa.c) | [memccpy](srcs/libft/mem/ft_memccpy.c) | [putchar](srcs/libft/print/ft_putchar.c) | [strclen](srcs/libft/str/ft_strclen.c) | [pow](srcs/libft/int/ft_pow.c) | [list_push_back](srcs/libft/lst/ft_list_push_back.c) | [btree_apply_suffix](srcs/libft/btree/btree_apply_suffix.c) |
@@ -40,8 +40,8 @@
 | | | | | [strtrim](srcs/libft/str/ft_strtrim.c) |||
 | | | | | [tolower](srcs/libft/str/ft_tolower.c) |||
 | | | | | [toupper](srcs/libft/str/ft_toupper.c) |||
-| | | | | [strrev_leakless](srcs/libft/str/ft_strrev_leakless.c) |||
-| | | | | [stradd_leakless](srcs/libft/str/ft_stradd_leakless.c) |||
+| | | | | [strrev_2](srcs/libft/str/ft_strrev_leakless.c) |||
+| | | | | [stradd_2](srcs/libft/str/ft_stradd_leakless.c) |||
 | | | | | [intlen](srcs/libft/int/ft_intlen.c) |||
 | | | | | [longlen](srcs/libft/int/ft_longlen.c) |||
 | | | | | [pow](srcs/libft/int/ft_pow.c) |||
