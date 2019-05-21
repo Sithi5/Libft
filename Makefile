@@ -98,9 +98,9 @@ SRCS_LIBFT_NAME		= 	is/ft_isalnum.c						\
 						str/ft_strrev_leakless.c 			\
 						str/ft_stradd_leakless.c 			\
 															\
+						int/ft_intlen.c 					\
 						int/ft_longlen.c	 				\
 						int/ft_pow.c 						\
-						int/ft_intlen.c 					\
 															\
 						lst/ft_create_elem.c				\
 						lst/ft_create_elem_int.c			\
