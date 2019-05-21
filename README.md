@@ -11,9 +11,9 @@
 | [isdigit](srcs/libft/is/ft_isdigit.c) | [lltoabase_+](srcs/libft/conv/ft_lltoabase_signed.c) | [memcpy](srcs/libft/mem/ft_memcpy.c) | [putendl](srcs/libft/print/ft_putendl.c) | [strcmp](srcs/libft/str/ft_strcmp.c) || [list_push_front_int](srcs/libft/lst/ft_list_push_front_int.c) | [btree_insert_data](srcs/libft/btree/btree_insert_data.c) |
 | [isgraph](srcs/libft/is/ft_isgraph.c) | [lltoabase](srcs/libft/conv/ft_lltoabase_signless.c) | [memdel](srcs/libft/mem/ft_memdel.c) | [putendl_fd](srcs/libft/print/ft_putendl_fd.c) | [strcpy](srcs/libft/str/ft_strcpy.c) || [list_size](srcs/libft/lst/ft_list_size.c) | [btree_int_cmp](srcs/libft/btree/btree_int_cmp.c) |
 | [isprint](srcs/libft/is/ft_isprint.c) | [lltoabase_u](srcs/libft/conv/ft_lltoabase_unsigned.c) | [memmove](srcs/libft/mem/ft_memmove.c) | [putendlerr](srcs/libft/print/ft_putendlerr.c) | [strdel](srcs/libft/str/ft_strdel.c) || [list_last](srcs/libft/lst/ft_list_last.c) | [btree_print](srcs/libft/btree/btree_print.c) |
-| | [ltoa](srcs/libft/conv/ft_ltoa.c) | [memset](srcs/libft/mem/ft_memset.c) | [putnbr](srcs/libft/print/ft_putnbr.c) | [strdup](srcs/libft/str/ft_strdup.c) || [list_remove_last](srcs/libft/lst/ft_list_remove_last.c) ||
-| | | | [putnbr_fd](srcs/libft/print/ft_putnbr_fd.c) | [strdupd](srcs/libft/str/ft_strdupd.c) || [list_remove_first](srcs/libft/lst/ft_list_remove_first.c) ||
-| | | | [putnbrerr](srcs/libft/print/ft_putnbrerr.c) | [strequ](srcs/libft/str/ft_strequ.c) || [list_remove_middle](srcs/libft/lst/ft_list_remove_middle.c) ||
+| | [ltoa](srcs/libft/conv/ft_ltoa.c) | [memset](srcs/libft/mem/ft_memset.c) | [putnbr](srcs/libft/print/ft_putnbr.c) | [strdup](srcs/libft/str/ft_strdup.c) || [list_rem_last](srcs/libft/lst/ft_list_remove_last.c) ||
+| | | | [putnbr_fd](srcs/libft/print/ft_putnbr_fd.c) | [strdupd](srcs/libft/str/ft_strdupd.c) || [list_rem_first](srcs/libft/lst/ft_list_remove_first.c) ||
+| | | | [putnbrerr](srcs/libft/print/ft_putnbrerr.c) | [strequ](srcs/libft/str/ft_strequ.c) || [list_rem_middle](srcs/libft/lst/ft_list_remove_middle.c) ||
 | | | | [putstr](srcs/libft/print/ft_putstr.c) | [strfill](srcs/libft/str/ft_strfill.c) || [list_push_params](srcs/libft/lst/ft_list_push_params.c) ||
 | | | | [putstr_fd](srcs/libft/print/ft_putstr_fd.c) | [striter](srcs/libft/str/ft_striter.c) || [list_clear](srcs/libft/lst/ft_list_clear.c) ||
 | | | | [putstrerr](srcs/libft/print/ft_putstrerr.c) | [striteri](srcs/libft/str/ft_striteri.c) || [list_clear_data](srcs/libft/lst/ft_list_clear_data.c) ||
