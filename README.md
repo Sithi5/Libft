@@ -34,9 +34,9 @@
 | | | | | [ft_strsplit](srcs/libft/str/ft_strsplit.c) |||
 | | | | | [ft_strstr](srcs/libft/str/ft_strstr.c) |||
 | | | | | [ft_strsub](srcs/libft/str/ft_strsub.c) |||
-| | | | | [ft_strsub_leakless](srcs/libft/str/ft_strsub_leakless.c) |||
+| | | | | [ft_strsub_2](srcs/libft/str/ft_strsub_leakless.c) |||
 | | | | | [ft_strtok](srcs/libft/str/ft_strtok.c) ([wiki](../../wiki/ft_strtok)) |||
-| | | | | [ft_strtoupper_leakless](srcs/libft/str/ft_strtoupper_leakless.c) |||
+| | | | | [ft_strtoupper_2](srcs/libft/str/ft_strtoupper_leakless.c) |||
 | | | | | [ft_strtrim](srcs/libft/str/ft_strtrim.c) |||
 | | | | | [ft_tolower](srcs/libft/str/ft_tolower.c) |||
 | | | | | [ft_toupper](srcs/libft/str/ft_toupper.c) |||
