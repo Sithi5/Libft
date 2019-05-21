@@ -175,6 +175,12 @@ SRCS_MNPF_NAME 		=	miniprintf.c						\
 						ft_width.c							\
 						ft_accu.c				
 
+SRCS_INCLUDE_LIBFT	=	libft.h								\
+						get_next_line.h						\
+						miniprintf.h						\
+						ftprintf.h
+
+
 
 # Sources, objects and includes path
 SRCS_MNPF_PATH		= 	./srcs/miniprintf/
@@ -187,12 +193,13 @@ OBJS_FT_PRINTF_PATH = 	./objs/ft_printf/
 INCLUDES_PATH 		= 	./includes/
 
 # Sources and objects
-SRCS_MNPF		= $(addprefix $(SRCS_MNPF_PATH), $(SRCS_MNPF_NAME))
-SRCS_LIBFT		= $(addprefix $(SRCS_LIBFT_PATH), $(SRCS_LIBFT_NAME))
-SRCS_FT_PRINTF	= $(addprefix $(SRCS_FT_PRINTF_PATH), $(SRCS_FT_PRINTF_NAME))
-OBJS_MNPF		= $(patsubst $(SRCS_MNPF_PATH)%.c, $(OBJS_MNPF_PATH)%.o, $(SRCS_MNPF))
-OBJS_LIBFT		= $(patsubst $(SRCS_LIBFT_PATH)%.c, $(OBJS_LIBFT_PATH)%.o, $(SRCS_LIBFT))
-OBJS_FT_PRINTF	= $(patsubst $(SRCS_FT_PRINTF_PATH)%.c, $(OBJS_FT_PRINTF_PATH)%.o, $(SRCS_FT_PRINTF))
+INCLUDES  		=	$(addprefix $(INCLUDES_PATH), $(SRCS_INCLUDE_LIBFT))
+SRCS_MNPF		=	$(addprefix $(SRCS_MNPF_PATH), $(SRCS_MNPF_NAME))
+SRCS_LIBFT		=	$(addprefix $(SRCS_LIBFT_PATH), $(SRCS_LIBFT_NAME))
+SRCS_FT_PRINTF	=	$(addprefix $(SRCS_FT_PRINTF_PATH), $(SRCS_FT_PRINTF_NAME))
+OBJS_MNPF		=	$(patsubst $(SRCS_MNPF_PATH)%.c, $(OBJS_MNPF_PATH)%.o, $(SRCS_MNPF))
+OBJS_LIBFT		=	$(patsubst $(SRCS_LIBFT_PATH)%.c, $(OBJS_LIBFT_PATH)%.o, $(SRCS_LIBFT))
+OBJS_FT_PRINTF	=	$(patsubst $(SRCS_FT_PRINTF_PATH)%.c, $(OBJS_FT_PRINTF_PATH)%.o, $(SRCS_FT_PRINTF))
 
 # Compilation
 ifeq ($(SANITIZE),yes)
@@ -206,7 +213,6 @@ else
 	CC				=	gcc -Wall -Wextra -Werror
 endif
 
-INCLUDES = -I $(INCLUDES_PATH)
 LDFLAGS = ./libft/
 
 # Text format
@@ -257,7 +263,7 @@ ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
 	@echo "VISUAL VERSION 2"
 endif
 
-$(OBJS_MNPF_PATH)%.o: $(SRCS_MNPF_PATH)%.c
+$(OBJS_MNPF_PATH)%.o: $(SRCS_MNPF_PATH)%.c $(INCLUDES)
 
 ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
 	@echo "$(_END)$(_GREEN)[OK]\t$(_UNDER)$(_YELLOW)	\
@@ -267,7 +273,7 @@ endif
 	@mkdir -p objs/miniprintf
 	@$(CC) -I $(INCLUDES_PATH) -o $@ -c $<
 
-$(OBJS_FT_PRINTF_PATH)%.o: $(SRCS_FT_PRINTF_PATH)%.c
+$(OBJS_FT_PRINTF_PATH)%.o: $(SRCS_FT_PRINTF_PATH)%.c $(INCLUDES)
 
 ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
 	@echo "$(_END)$(_GREEN)[OK]\t$(_UNDER)$(_YELLOW)	\
@@ -277,7 +283,7 @@ endif
 	@mkdir -p objs/ft_printf
 	@$(CC) -I $(INCLUDES_PATH) -o $@ -c $<
 
-$(OBJS_LIBFT_PATH)%.o: $(SRCS_LIBFT_PATH)%.c
+$(OBJS_LIBFT_PATH)%.o: $(SRCS_LIBFT_PATH)%.c $(INCLUDES)
 
 ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
 	@echo "$(_END)$(_GREEN)[OK]\t$(_UNDER)$(_YELLOW)	\

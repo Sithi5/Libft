@@ -10,7 +10,7 @@ VISUALNUM			=	2
 #Compilation Modes. Default= -Wall -Wextra -Werror
 SANITIZE			=	no
 NOERROR				=	no
-NOFLAG				=	no
+NOFLAG				=	yes
 
 ifeq ($(SANITIZE),yes)
 	CC				=	gcc -Wall -Wextra -Werror -fsanitize=address \
@@ -73,9 +73,9 @@ all: libft $(NAME)
 libft: 
 	@make -C $(LIBFT) -j 100
 
-$(NAME): $(OBJS) $(INCLUDES)
+$(NAME): $(INCLUDES) $(OBJS) 
 	@echo "$(_WHITE)====================================================$(_END)"
-	@echo "$(_YELLOW)		COMPILING MAIN$(_END)"
+	@echo "$(_YELLOW)		COMPILING $(NAME)$(_END)"
 	@echo "$(_WHITE)====================================================$(_END)"
 	@cp $(LIBFT)/libft.a .
 	@$(CC) -o $(NAME) $(OBJS) libft.a
