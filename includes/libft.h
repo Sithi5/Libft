@@ -64,8 +64,8 @@ size_t				ft_strlcat(char *dst, const char *src, size_t size);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strstr(const char *haystack, const char *needle);
-char				*ft_strnstr(const char *haystack, const char *needle,
-				size_t len);
+char				*ft_strnstr(const char *haystack, const char *needle
+						, size_t len);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strnew(size_t size);
@@ -75,6 +75,7 @@ void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 char				*ft_strmap(char const *s, char (*f)(char));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char				*ft_strtok(char *str, const char *sep);
 int					ft_strequ(char const *s1, char const *s2);
 int					ft_strnequ(char const *s1, char const *s2, size_t n);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
@@ -83,6 +84,8 @@ char				*ft_strjoind(char const *s1, char *s2);
 char				*ft_strdjoind(char *s1, char *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
+int					ft_strisnum(char *str);
+void				ft_strtabdel(char ***tab);
 
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
@@ -108,6 +111,8 @@ void				ft_putnbr(int n);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putnbrll(long long n);
 void				ft_putnbrerr(int nb);
+void				ft_printtab_nb(int *nb, int len);
+void				ft_printtab_str(char **str);
 
 t_list				*ft_create_elem(void *data);
 t_list				*ft_create_elem_int(int i);
@@ -122,9 +127,9 @@ t_list				*ft_list_last(t_list *begin_list);
 void				ft_list_remove_last_int(t_list **begin_list);
 void				ft_list_remove_last_data(t_list **begin_list);
 void				ft_list_remove_middle_int(t_list **begin_list
-					, t_list *elem);
+						, t_list *elem);
 void				ft_list_remove_middle_data(t_list **begin_list
-					, t_list *elem);
+						, t_list *elem);
 void				ft_list_remove_first_int(t_list **begin_list);
 void				ft_list_remove_first_data(t_list **begin_list);
 t_list				*ft_list_push_params(int ac, char **av);
@@ -139,12 +144,8 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstadd(t_list **alst, t_list *new);
+int					ft_lstlen(t_list *beg);
 
-
-char				*ft_strtok(char *str, const char *sep);
-
-void				ft_printtab_nb(int *nb, int len);
-void				ft_printtab_str(char **str);
 
 int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
@@ -155,11 +156,12 @@ char				*ft_lltoabase_signed(long long nbr, int base);
 char				*ft_lltoabase_unsigned(unsigned long long nbr, int base);
 char				*ft_dtoa(double n, int prec);
 char				*ft_ltoa(long n);
+long long			ft_atolli(const char *str);
 
 size_t				ft_strclen(const char *s, char c);
 char				*ft_strfill(char *s, char c, size_t size);
-char				*ft_strsub_leakless(char *s, unsigned int start,
-				size_t len);
+char				*ft_strsub_leakless(char *s, unsigned int start
+						, size_t len);
 char				*ft_strtoupper_leakless(char *s);
 char				*ft_stradd_leakless(char *s1, char c);
 char				*ft_strrev_leakless(char *s);
@@ -167,7 +169,8 @@ char				*ft_strrev_leakless(char *s);
 int					ft_longlen(long n);
 int					ft_pow(int x, int y);
 int					ft_intlen(int n);
-int					ft_lstlen(t_list *beg);
+void				ft_inttabdel(int ***tab, int len);
+
 
 t_btree				*btree_create_node(void *content);
 int					btree_int_cmp(void *c1, void *c2);
@@ -175,7 +178,7 @@ void				btree_apply_prefix(t_btree *root, void (*applyf)(void *));
 void				btree_apply_suffix(t_btree *root, void (*applyf)(void *));
 void				btree_apply_infix(t_btree *root, void (*applyf)(void *));
 void				btree_insert_data(t_btree **root, void *content
-					, int (*cmpf)(void *, void *));
+						, int (*cmpf)(void *, void *));
 int					btree_lvl_count(t_btree *root);
 void				btree_print(t_btree *root);
 

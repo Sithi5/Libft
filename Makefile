@@ -31,7 +31,8 @@ SRCS_LIBFT_NAME		= 	is/ft_isalnum.c						\
 						conv/ft_lltoabase_signed.c 			\
 						conv/ft_lltoabase_signless.c 		\
 						conv/ft_lltoabase_unsigned.c 		\
-						conv/ft_ltoa.c 						\
+						conv/ft_ltoa.c						\
+						conv/ft_atolli.c					\
 															\
 						mem/ft_bzero.c						\
 						mem/ft_memalloc.c					\
@@ -98,10 +99,13 @@ SRCS_LIBFT_NAME		= 	is/ft_isalnum.c						\
 						str/ft_toupper.c 					\
 						str/ft_strrev_leakless.c 			\
 						str/ft_stradd_leakless.c 			\
+						str/ft_strisnum.c					\
+						str/ft_strtabdel.c					\
 															\
 						int/ft_intlen.c 					\
 						int/ft_longlen.c	 				\
 						int/ft_pow.c 						\
+						int/ft_inttabdel.c					\
 															\
 						lst/ft_create_elem.c				\
 						lst/ft_create_elem_int.c			\
