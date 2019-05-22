@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 16:01:26 by judumay           #+#    #+#             */
-/*   Updated: 2019/05/22 16:02:23 by judumay          ###   ########.fr       */
+/*   Updated: 2019/05/22 16:45:13 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct		s_list
 	void			*content;
 	void			*data;
 	int				i;
+	int				*tab;
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
@@ -86,6 +87,7 @@ char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 int					ft_strisnum(char *str);
 void				ft_strtabdel(char ***tab);
+char				*ft_strdjoin(char *s1, char const *s2);
 
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
