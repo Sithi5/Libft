@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mabouce <mabouce@student.42.fr>            +#+  +:+       +#+        */
+/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/05 17:51:13 by judumay           #+#    #+#             */
-/*   Updated: 2019/05/20 16:56:01 by mabouce          ###   ########.fr       */
+/*   Created: 2019/05/22 16:01:26 by judumay           #+#    #+#             */
+/*   Updated: 2019/05/22 16:02:23 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include "get_next_line.h"
-#include "miniprintf.h"
-#include "ftprintf.h"
+# include <string.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include "get_next_line.h"
+# include "miniprintf.h"
+# include "ftprintf.h"
 
 typedef struct		s_list
 {
@@ -146,7 +146,6 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstadd(t_list **alst, t_list *new);
 int					ft_lstlen(t_list *beg);
 
-
 int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
 long				ft_atol(const char *str);
@@ -170,7 +169,6 @@ int					ft_longlen(long n);
 int					ft_pow(int x, int y);
 int					ft_intlen(int n);
 void				ft_inttabdel(int ***tab, int len);
-
 
 t_btree				*btree_create_node(void *content);
 int					btree_int_cmp(void *c1, void *c2);
