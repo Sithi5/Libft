@@ -54,7 +54,7 @@ SRCS_LIBFT_NAME		= 	is/ft_isalnum.c						\
 						print/ft_putendl_fd.c				\
 						print/ft_putendlerr.c 				\
 						print/ft_putnbr.c 					\
-						print/ft_putnbrll.c 					\
+						print/ft_putnbrll.c 				\
 						print/ft_putnbr_fd.c				\
 						print/ft_putnbrerr.c				\
 						print/ft_putstr.c					\
@@ -102,6 +102,7 @@ SRCS_LIBFT_NAME		= 	is/ft_isalnum.c						\
 						str/ft_strisnum.c					\
 						str/ft_strtabdel.c					\
 						str/ft_strdjoin.c					\
+						str/ft_strfindc.c					\
 															\
 						int/ft_intlen.c 					\
 						int/ft_longlen.c	 				\

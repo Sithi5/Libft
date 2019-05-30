@@ -88,6 +88,7 @@ char				**ft_strsplit(char const *s, char c);
 int					ft_strisnum(char *str);
 void				ft_strtabdel(char ***tab);
 char				*ft_strdjoin(char *s1, char const *s2);
+size_t				ft_strfindc(const char *s, char c);
 
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);

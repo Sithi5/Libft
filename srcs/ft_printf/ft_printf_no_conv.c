@@ -42,7 +42,7 @@ static t_printf		*ft_printf_champ(t_printf *p)
 
 t_printf			*ft_printf_no_conv(t_printf *p)
 {
-	if (!(p->conv == FT_PRINTF_NO_MODIFIERS))
+	if (!((int)p->conv == (int)FT_PRINTF_NO_MODIFIERS))
 		return (p);
 	if (!(p->conv_ret = ft_strnew(1))
 		&& (p->error = -1))

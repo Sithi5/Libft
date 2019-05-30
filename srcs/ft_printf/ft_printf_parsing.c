@@ -32,7 +32,7 @@ t_printf		*ft_printf_parsing(t_printf *p, const char *format)
 	ft_printf_get_conv(p, format);
 	if (!format[p->index] && (p->error = -1))
 		return (p);
-	if (p->conv == FT_PRINTF_NO_MODIFIERS)
+	if ((int)p->conv == (int)FT_PRINTF_NO_MODIFIERS)
 		p->tmpchar = format[p->index];
 	++p->index;
 	return (p);
