@@ -74,7 +74,7 @@ all: $(NAME)
 $(LIBFT)/$(LIBFTA): 
 	@make -C $(LIBFT) -j 100
 
-$(NAME): $(LIBFT)/$(LIBFTA) $(INCLUDES) $(OBJS) 
+$(NAME): $(LIBFT)/$(LIBFTA) $(OBJS)
 	@echo "$(_WHITE)====================================================$(_END)"
 	@echo "$(_YELLOW)		COMPILING $(NAME)$(_END)"
 	@echo "$(_WHITE)====================================================$(_END)"
@@ -111,7 +111,7 @@ re:	fclean all
 
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.c $(INCLUDES)
 	@mkdir -p ./objs/
-	@$(CC) -I $(INCLUDES) -I $(LIBFTINCLUDES) \
+	@$(CC) -I $(INCLUDES_PATH) -I $(LIBFTINCLUDES) \
 		-I $(INCLUDES_PATH) -c $< -o $@
 	@echo "$(_END)$(_GREEN)[OK]\t$(_UNDER)$(_YELLOW)	\
 		COMPILE :$(_END)$(_BOLD)$(_WHITE)\t$<"
