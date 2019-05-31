@@ -103,6 +103,7 @@ SRCS_LIBFT_NAME		= 	is/ft_isalnum.c						\
 						str/ft_strtabdel.c					\
 						str/ft_strdjoin.c					\
 						str/ft_strfindc.c					\
+						str/ft_strsplit_multi.c				\
 															\
 						int/ft_intlen.c 					\
 						int/ft_longlen.c	 				\

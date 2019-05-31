@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mabouce <mabouce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 16:01:26 by judumay           #+#    #+#             */
-/*   Updated: 2019/05/22 16:45:13 by judumay          ###   ########.fr       */
+/*   Updated: 2019/05/31 17:26:12 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ int					ft_strisnum(char *str);
 void				ft_strtabdel(char ***tab);
 char				*ft_strdjoin(char *s1, char const *s2);
 size_t				ft_strfindc(const char *s, char c);
+char				**ft_strsplit_multi(char const *s, char *c);
 
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
