@@ -6,7 +6,7 @@
 /*   By: mabouce <mabouce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 16:01:26 by judumay           #+#    #+#             */
-/*   Updated: 2019/05/31 17:26:12 by mabouce          ###   ########.fr       */
+/*   Updated: 2019/06/05 11:04:34 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void				ft_strtabdel(char ***tab);
 char				*ft_strdjoin(char *s1, char const *s2);
 size_t				ft_strfindc(const char *s, char c);
 char				**ft_strsplit_multi(char const *s, char *c);
+char				*ft_strremove_char(char const *s, char *sep);
 
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
@@ -183,5 +184,6 @@ void				btree_insert_data(t_btree **root, void *content
 						, int (*cmpf)(void *, void *));
 int					btree_lvl_count(t_btree *root);
 void				btree_print(t_btree *root);
+void				btree_free(t_btree **root);
 
 #endif

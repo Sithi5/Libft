@@ -104,6 +104,7 @@ SRCS_LIBFT_NAME		= 	is/ft_isalnum.c						\
 						str/ft_strdjoin.c					\
 						str/ft_strfindc.c					\
 						str/ft_strsplit_multi.c				\
+						str/ft_strremove_char.c				\
 															\
 						int/ft_intlen.c 					\
 						int/ft_longlen.c	 				\
@@ -144,6 +145,7 @@ SRCS_LIBFT_NAME		= 	is/ft_isalnum.c						\
 						btree/btree_insert_data.c			\
 						btree/btree_int_cmp.c				\
 						btree/btree_print.c					\
+						btree/btree_free.c					\
 															\
 						get_next_line.c 					\
 
