@@ -6,7 +6,7 @@
 /*   By: mabouce <mabouce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 16:02:56 by judumay           #+#    #+#             */
-/*   Updated: 2019/06/05 11:14:57 by mabouce          ###   ########.fr       */
+/*   Updated: 2019/06/05 12:13:24 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ int		main(int ac, char **av)
 	ft_putstr(str);
 	free(str);
 	str = ft_strdupd(ft_strremove_char("j'enleve les espaces de cette  \t\t\t\t   string et les S minuscule\n\n\n\n\n", " s\n\t"));
+	ft_putstr(str);
+	ft_putchar('\n');
+		free(str);
+	str = ft_strdupd(ft_strremove_char("j", "j"));
+	ft_putstr("test strremove quand on remove tout");
 	ft_putstr(str);
 	ft_putchar('\n');
 

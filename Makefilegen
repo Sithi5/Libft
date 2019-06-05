@@ -15,8 +15,8 @@ NOFLAG				=	yes
 ifeq ($(SANITIZE),yes)
 	CC				=	gcc -Wall -Wextra -Werror -fsanitize=address \
 						-Wall -Wextra -Werror
-else ifeq ($(WEVERYTHING),yes)
-	CC				=	gcc -Wall -Wextra -Weverything
+else ifeq ($(NOERROR),yes)
+	CC				=	gcc -Wall -Wextra
 else
 	CC				=	gcc -Wall -Wextra -Werror
 endif
