@@ -6,27 +6,13 @@
 /*   By: mabouce <mabouce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/05 10:09:42 by mabouce           #+#    #+#             */
-/*   Updated: 2019/06/05 11:16:11 by mabouce          ###   ########.fr       */
+/*   Updated: 2019/06/05 11:53:56 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
 
-int		ft_is_sep(char c, char *sep)
-{
-	int i;
-
-	i = 0;
-	while (sep[i])
-	{
-		if (c == sep[i])
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-int		ft_nb_to_remove(const char *s, char *sep)
+int				ft_nb_to_remove(const char *s, char *sep)
 {
 	int		nb_to_remove;
 	int		i;
@@ -42,7 +28,7 @@ int		ft_nb_to_remove(const char *s, char *sep)
 	return (nb_to_remove);
 }
 
-char	*ft_strremove_char(char const *s, char *sep)
+char			*ft_strremove_char(char const *s, char *sep)
 {
 	int		i;
 	int		j;

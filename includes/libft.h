@@ -6,7 +6,7 @@
 /*   By: mabouce <mabouce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 16:01:26 by judumay           #+#    #+#             */
-/*   Updated: 2019/06/05 11:04:34 by mabouce          ###   ########.fr       */
+/*   Updated: 2019/06/05 11:55:39 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strnstr(const char *haystack, const char *needle
-						, size_t len);
+					, size_t len);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strnew(size_t size);
@@ -85,11 +85,13 @@ char				*ft_strjoind(char const *s1, char *s2);
 char				*ft_strdjoind(char *s1, char *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
+char				**ft_strsplit_multi(char const *s, char *c);
+int					ft_is_sep(char c, char *sep);
 int					ft_strisnum(char *str);
 void				ft_strtabdel(char ***tab);
 char				*ft_strdjoin(char *s1, char const *s2);
 size_t				ft_strfindc(const char *s, char c);
-char				**ft_strsplit_multi(char const *s, char *c);
+
 char				*ft_strremove_char(char const *s, char *sep);
 
 int					ft_isalpha(int c);
