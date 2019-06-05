@@ -6,7 +6,7 @@
 /*   By: mabouce <mabouce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 16:01:26 by judumay           #+#    #+#             */
-/*   Updated: 2019/06/05 11:55:39 by mabouce          ###   ########.fr       */
+/*   Updated: 2019/06/05 17:04:09 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ void				ft_putnbr_fd(int n, int fd);
 void				ft_putnbrll(long long n);
 void				ft_putnbrerr(int nb);
 void				ft_printtab_nb(int *nb, int len);
-void				ft_printtab_str(char **str);
+void				ft_printtab_str(char **str, int lenght);
 
 t_list				*ft_create_elem(void *data);
 t_list				*ft_create_elem_int(int i);
