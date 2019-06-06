@@ -27,8 +27,18 @@ char	*ft_char(t_ms *s)
 char	*ft_string(t_ms *s)
 {
 	char	*tmp;
+	char	*arg;
 
-	if (!(tmp = ft_strdup(va_arg(s->va, char *))))
-		return (NULL);
+	arg = va_arg(s->va, char *);
+	if (!arg)
+	{
+		if (!(tmp = ft_strdup("(NULL)")))
+			return (NULL);
+	}
+	else
+	{
+		if (!(tmp = ft_strdup(arg)))
+			return (NULL);
+	}
 	return (tmp);
 }

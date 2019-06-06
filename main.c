@@ -24,13 +24,22 @@ int		main(int ac, char **av)
 	i = 0;
 	printf("start testing\n");
 	tree = NULL;
-	printf("test num %i : color miniprintf\n", i++);
+	printf("test num %i : miniprintf\n", i++);
 	miniprintf("%%Test binary tree\n%%", "BLUE", "END");
+
+	char *test;
+	test = NULL;
+	miniprintf("%s%s\n", "test empty string :", test);
+	miniprintf("%%testing testing : s:%s\ti: %i\td: %d\tc:%c%%\n", "GREEN", "test convertors", -12458, +5000, 'A', "END");
+
+
+
 	printf("test num %i : insert data\n", i++);
 	btree_insert_data(&tree, (void *)5, &btree_int_cmp);
 	btree_insert_data(&tree, (void *)5, &btree_int_cmp);
 	btree_insert_data(&tree, (void *)0, &btree_int_cmp);
 	btree_insert_data(&tree, (void *)-10, &btree_int_cmp);
+
 	printf("test num %i : print tree\n", i++);
 	btree_print(tree);
 
