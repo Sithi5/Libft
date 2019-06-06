@@ -24,5 +24,5 @@ size_t		ft_strfindc(const char *s, char c)
 		++s;
 		++i;
 	}
-	return (!*s ? -1 : i);
+	return (!*s ? -1 : (int)i);
 }
