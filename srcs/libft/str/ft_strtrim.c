@@ -3,34 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mabouce <mabouce@student.42.fr>            +#+  +:+       +#+        */
+/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/05 17:15:54 by judumay           #+#    #+#             */
-/*   Updated: 2019/06/05 10:10:40 by mabouce          ###   ########.fr       */
+/*   Updated: 2019/06/07 09:13:42 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
+#include "libft.h"
 
 char	*ft_strtrim(char const *s)
 {
-	int		i;
-	int		len;
-	char	*str;
+	size_t	min;
+	size_t	max;
+	size_t	len;
 
-	i = 0;
 	if (!s)
 		return (NULL);
-	len = ft_strlen(s);
-	while (s[len - 1] == ' ' || s[len - 1] == '\n' || s[len - 1] == '\t')
-		len--;
-	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
-	{
-		i++;
-		len--;
-	}
-	if (len < 0)
-		len = 0;
-	str = ft_strsub(s, i, len);
-	return (str);
+	min = 0;
+	while (s[min] != '\0'
+			&& (s[min] == ' ' || s[min] == '\n' || s[min] == '\t'))
+		min++;
+	max = ft_strlen(s);
+	while (min < max
+			&& (s[max - 1] == ' ' || s[max - 1] == '\n' || s[max - 1] == '\t'))
+		max--;
+	if (min == max)
+		return (ft_strnew(1));
+	len = max - min;
+	return (ft_strsub(s, min, len));
 }

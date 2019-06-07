@@ -33,6 +33,8 @@ SRCS_LIBFT_NAME		= 	is/ft_isalnum.c						\
 						conv/ft_lltoabase_unsigned.c 		\
 						conv/ft_ltoa.c						\
 						conv/ft_atolli.c					\
+						conv/ft_atoi_base.c 				\
+						conv/ft_atolli_base.c 				\
 															\
 						mem/ft_bzero.c						\
 						mem/ft_memalloc.c					\

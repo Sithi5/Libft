@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mabouce <mabouce@student.42.fr>            +#+  +:+       +#+        */
+/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 16:01:26 by judumay           #+#    #+#             */
-/*   Updated: 2019/06/05 17:04:09 by mabouce          ###   ########.fr       */
+/*   Updated: 2019/06/07 11:38:54 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,6 +163,8 @@ char				*ft_lltoabase_unsigned(unsigned long long nbr, int base);
 char				*ft_dtoa(double n, int prec);
 char				*ft_ltoa(long n);
 long long			ft_atolli(const char *str);
+int					ft_atoi_base(const char *str, int base);
+long long			ft_atolli_base(const char *str, int base);
 
 size_t				ft_strclen(const char *s, char c);
 char				*ft_strfill(char *s, char c, size_t size);
