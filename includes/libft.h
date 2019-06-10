@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 16:01:26 by judumay           #+#    #+#             */
-/*   Updated: 2019/06/07 11:38:54 by judumay          ###   ########.fr       */
+/*   Updated: 2019/06/10 11:18:47 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,20 @@ void				ft_putnbrerr(int nb);
 void				ft_printtab_nb(int *nb, int len);
 void				ft_printtab_str(char **str, int lenght);
 
+int					ft_atoi(const char *str);
+char				*ft_itoa(int n);
+long				ft_atol(const char *str);
+char				*ft_lltoa(long long n);
+char				*ft_lltoabase_signless(long long nbr, int base);
+char				*ft_lltoabase_signed(long long nbr, int base);
+char				*ft_lltoabase_unsigned(unsigned long long nbr, int base);
+char				*ft_dtoa(double n, int prec);
+char				*ft_ltoa(long n);
+long long			ft_atolli(const char *str);
+int					ft_atoi_base(const char *str, int base);
+long long			ft_atolli_base(const char *str, int base);
+int	 				ft_hexatoi(char *hex, int len);
+
 t_list				*ft_create_elem(void *data);
 t_list				*ft_create_elem_int(int i);
 int					ft_list_push_back(t_list **begin_list, void *data);
@@ -152,19 +166,6 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstadd(t_list **alst, t_list *new);
 int					ft_lstlen(t_list *beg);
-
-int					ft_atoi(const char *str);
-char				*ft_itoa(int n);
-long				ft_atol(const char *str);
-char				*ft_lltoa(long long n);
-char				*ft_lltoabase_signless(long long nbr, int base);
-char				*ft_lltoabase_signed(long long nbr, int base);
-char				*ft_lltoabase_unsigned(unsigned long long nbr, int base);
-char				*ft_dtoa(double n, int prec);
-char				*ft_ltoa(long n);
-long long			ft_atolli(const char *str);
-int					ft_atoi_base(const char *str, int base);
-long long			ft_atolli_base(const char *str, int base);
 
 size_t				ft_strclen(const char *s, char c);
 char				*ft_strfill(char *s, char c, size_t size);
