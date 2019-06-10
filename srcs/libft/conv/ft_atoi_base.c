@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/07 11:37:09 by judumay           #+#    #+#             */
-/*   Updated: 2019/06/07 11:42:49 by judumay          ###   ########.fr       */
+/*   Updated: 2019/06/10 17:07:38 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static int	ft_nbr_inbase(char c, int base)
 {
 	if (base <= 10)
 		return (c >= '0' && c <= '9');
-	return ((c >= '0' && c <= '9') || (c >= 'A' && c <= ('A' + base - 10)) || \
-	(c >= 'a' && c <= ('a' + base - 10)));
+	return ((c >= '0' && c <= '9') || (c >= 'A' && c <= ('A' + base - 10))
+		|| (c >= 'a' && c <= ('a' + base - 10)));
 }
 
 int			ft_atoi_base(const char *str, int base)
@@ -30,8 +30,8 @@ int			ft_atoi_base(const char *str, int base)
 		return (0);
 	nbr = 0;
 	sign = 1;
-	while (str[i] == '\t' || str[i] == '\v' || str[i] == '\n' || \
-		str[i] == ' ' || str[i] == '\r' || str[i] == '\f')
+	while (str[i] == '\t' || str[i] == '\v' || str[i] == '\n'
+		|| str[i] == ' ' || str[i] == '\r' || str[i] == '\f')
 		i += 1;
 	if (str[i] == '-' || str[i] == '+')
 		if (str[i++] == '-')

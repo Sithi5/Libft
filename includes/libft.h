@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 16:01:26 by judumay           #+#    #+#             */
-/*   Updated: 2019/06/10 14:00:40 by judumay          ###   ########.fr       */
+/*   Updated: 2019/06/10 17:08:20 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,7 @@ char				*ft_ltoa(long n);
 long long			ft_atolli(const char *str);
 int					ft_atoi_base(const char *str, int base);
 long long			ft_atolli_base(const char *str, int base);
-int	 				ft_hexatoi(char *hex, int len);
+int					ft_hexatoi(char *hex, int len);
 
 t_list				*ft_create_elem(void *data);
 t_list				*ft_create_elem_int(int i);
