@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 16:01:26 by judumay           #+#    #+#             */
-/*   Updated: 2019/06/10 11:18:47 by judumay          ###   ########.fr       */
+/*   Updated: 2019/06/10 14:00:40 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ int					ft_is_sep(char c, char *sep);
 int					ft_strisnum(char *str);
 void				ft_strtabdel(char ***tab);
 char				*ft_strdjoin(char *s1, char const *s2);
+char				*ft_strdjoinc(char *s1, char c);
 size_t				ft_strfindc(const char *s, char c);
 
 char				*ft_strremove_char(char const *s, char *sep);
