@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/11 18:00:24 by judumay           #+#    #+#             */
-/*   Updated: 2019/03/11 18:00:25 by judumay          ###   ########.fr       */
+/*   Updated: 2019/06/17 11:28:48 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static t_printf		*ft_printf_percent_champ(t_printf *p)
 
 t_printf			*ft_printf_percent(t_printf *p)
 {
-	if (!(p->conv == FT_PRINTF_PERCENT))
+	if (!(p->conv == ft_printf_per))
 		return (p);
 	if (!(p->conv_ret = ft_strdup("%"))
 		&& (p->error = -1))

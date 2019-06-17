@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/11 18:00:29 by judumay           #+#    #+#             */
-/*   Updated: 2019/05/22 16:27:32 by judumay          ###   ########.fr       */
+/*   Updated: 2019/06/17 11:25:44 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_printf			*ft_printf_s(t_printf *p)
 {
 	char	*str;
 
-	if (!(p->conv == FT_PRINTF_S && p->modifier != FT_PRINTF_L))
+	if (!(p->conv == ft_printf_string && p->modifier != ft_printf_l))
 		return (p);
 	if (!(str = va_arg(p->ap, char*)))
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ftprintf.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judumay <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 15:56:19 by judumay           #+#    #+#             */
-/*   Updated: 2019/05/22 15:56:24 by judumay          ###   ########.fr       */
+/*   Updated: 2019/06/17 11:28:51 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,27 @@
 
 typedef enum	e_printf_modifier
 {
-	FT_PRINTF_NO_MODIFIERS,
-	FT_PRINTF_H,
-	FT_PRINTF_HH,
-	FT_PRINTF_L,
-	FT_PRINTF_LL,
-	FT_PRINTF_FL
+	ft_printf_no_modifiers
+	, ft_printf_h
+	, ft_printf_hh
+	, ft_printf_l
+	, ft_printf_ll
+	, ft_printf_fl
 }				t_modifier;
 
 typedef enum	e_printf_conv
 {
-	NO_INPUT,
-	FT_PRINTF_C,
-	FT_PRINTF_D,
-	FT_PRINTF_O,
-	FT_PRINTF_P,
-	FT_PRINTF_S,
-	FT_PRINTF_U,
-	FT_PRINTF_X,
-	FT_PRINTF_XX,
-	FT_PRINTF_F,
-	FT_PRINTF_PERCENT
+	no_input
+	, ft_printf_char
+	, ft_printf_decimal
+	, ft_printf_octal
+	, ft_printf_pointer
+	, ft_printf_string
+	, ft_printf_unsi
+	, ft_printf_hexa
+	, ft_printf_hexamaj
+	, ft_printf_float
+	, ft_printf_per
 }				t_conv;
 
 typedef struct	s_printf_flags

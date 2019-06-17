@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/11 18:00:38 by judumay           #+#    #+#             */
-/*   Updated: 2019/03/11 18:00:39 by judumay          ###   ########.fr       */
+/*   Updated: 2019/06/17 11:25:54 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ static __uint64_t	ft_printf_u_get_arg(t_printf *p)
 	__uint64_t	ret;
 
 	ret = 0;
-	if (p->modifier == FT_PRINTF_NO_MODIFIERS)
+	if (p->modifier == ft_printf_no_modifiers)
 		ret = va_arg(p->ap, __uint32_t);
-	else if (p->modifier == FT_PRINTF_H)
+	else if (p->modifier == ft_printf_h)
 		ret = (__uint16_t)va_arg(p->ap, __uint32_t);
-	else if (p->modifier == FT_PRINTF_HH)
+	else if (p->modifier == ft_printf_hh)
 		ret = (__uint8_t)va_arg(p->ap, __uint32_t);
-	else if (p->modifier == FT_PRINTF_L)
+	else if (p->modifier == ft_printf_l)
 		ret = va_arg(p->ap, unsigned long);
-	else if (p->modifier == FT_PRINTF_LL)
+	else if (p->modifier == ft_printf_ll)
 		ret = va_arg(p->ap, __uint64_t);
 	return (ret);
 }
@@ -90,7 +90,7 @@ t_printf			*ft_printf_u(t_printf *p)
 {
 	__uint64_t	tmp;
 
-	if (!(p->conv == FT_PRINTF_U))
+	if (!(p->conv == ft_printf_unsi))
 		return (p);
 	if (!(p->conv_ret = ft_lltoabase_unsigned(
 		(tmp = ft_printf_u_get_arg(p)), 10))

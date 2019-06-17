@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/11 17:59:57 by judumay           #+#    #+#             */
-/*   Updated: 2019/03/11 17:59:57 by judumay          ###   ########.fr       */
+/*   Updated: 2019/06/17 11:21:27 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static t_printf		*ft_printf_champ(t_printf *p)
 
 t_printf			*ft_printf_no_conv(t_printf *p)
 {
-	if (!((int)p->conv == (int)FT_PRINTF_NO_MODIFIERS))
+	if (!((int)p->conv == (int)ft_printf_no_modifiers))
 		return (p);
 	if (!(p->conv_ret = ft_strnew(1))
 		&& (p->error = -1))
