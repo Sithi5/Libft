@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_longlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mabouce <mabouce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 09:52:48 by judumay           #+#    #+#             */
-/*   Updated: 2019/02/07 10:35:27 by judumay          ###   ########.fr       */
+/*   Updated: 2019/06/24 16:17:09 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,20 @@
 
 int		ft_longlen(long n)
 {
-	int		len;
+	int				len;
+	unsigned long	nb;
 
-	if (n == LONG_MIN)
-		return (20);
-	len = 0;
-	if (n == 0)
-		return (1);
+	len = 1;
 	if (n < 0)
 	{
-		n = -n;
+		nb = -n;
 		len++;
 	}
-	while (n)
+	else
+		nb = n;
+	while (nb >= 10)
 	{
-		n /= 10;
+		nb /= 10;
 		len++;
 	}
 	return (len);
