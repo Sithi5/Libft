@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mabouce <mabouce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 16:01:26 by judumay           #+#    #+#             */
-/*   Updated: 2019/06/10 17:08:52 by judumay          ###   ########.fr       */
+/*   Updated: 2019/06/25 13:43:06 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,6 +177,7 @@ char				*ft_stradd_leakless(char *s1, char c);
 char				*ft_strrev_leakless(char *s);
 
 int					ft_longlen(long n);
+long long			ft_longlonglen(long long n);
 int					ft_pow(int x, int y);
 int					ft_intlen(int n);
 void				ft_inttabdel(int ***tab, int len);

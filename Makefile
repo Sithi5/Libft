@@ -113,6 +113,7 @@ SRCS_LIBFT_NAME		= 	is/ft_isalnum.c						\
 															\
 						int/ft_intlen.c 					\
 						int/ft_longlen.c	 				\
+						int/ft_longlonglen.c 				\
 						int/ft_pow.c 						\
 						int/ft_inttabdel.c					\
 															\
