@@ -185,6 +185,7 @@ SRCS_MNPF_NAME 		=	miniprintf.c						\
 						ft_csp.c							\
 						ft_mod.c							\
 						ft_diouxx.c							\
+						ft_longlong.c						\
 						ft_struct.c							\
 						ft_width.c							\
 						ft_accu.c				
