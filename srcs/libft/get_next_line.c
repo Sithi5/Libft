@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 10:56:39 by judumay           #+#    #+#             */
-/*   Updated: 2019/05/22 16:40:24 by judumay          ###   ########.fr       */
+/*   Updated: 2019/07/03 14:15:23 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ static int	read_line_fd(const int fd, t_fd *elem, char **eol)
 		return (-1);
 	if (size_read == 0 && (elem->data)[0] == '\0')
 		return (0);
+	if (size_read == 0 && *elem->data - 1 != '\n')
+		return (2);
 	return (1);
 }
 
@@ -101,6 +103,7 @@ int			get_next_line(const int fd, char **line)
 	char		*eol;
 	int			result;
 
+	result = 1;
 	if (fd < 0)
 		return (-1);
 	if (line == NULL)
@@ -119,5 +122,5 @@ int			get_next_line(const int fd, char **line)
 	if (!(*line = ft_strdup(elem->offset)))
 		return (clean_fd_info(fd, &files));
 	elem->offset = !(eol) ? NULL : (eol + 1);
-	return (1);
+	return (result);
 }
