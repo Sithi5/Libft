@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_x.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
+/*   By: judumay <judumay@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/11 18:00:43 by judumay           #+#    #+#             */
-/*   Updated: 2019/06/17 11:26:28 by judumay          ###   ########.fr       */
+/*   Updated: 2019/08/22 14:11:53 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,7 @@ t_printf			*ft_printf_x(t_printf *p)
 		return (p);
 	if (p->conv == ft_printf_hexamaj)
 		p->conv_ret = ft_strtoupper_leakless(p->conv_ret);
-	ft_putstr(p->conv_ret);
+	ft_putstr_fd(p->conv_ret, p->fd);
 	p->ret += ft_strlen(p->conv_ret);
 	return (p);
 }

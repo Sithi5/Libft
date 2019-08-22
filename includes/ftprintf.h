@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ftprintf.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
+/*   By: judumay <judumay@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 15:56:19 by judumay           #+#    #+#             */
-/*   Updated: 2019/06/17 11:28:51 by judumay          ###   ########.fr       */
+/*   Updated: 2019/08/22 14:07:29 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ typedef struct	s_printf
 	char			pad_0[3];
 	char			*conv_ret;
 	int				precision;
+	int				fd;
 	__int32_t		champ;
 	t_printf_flags	*flags;
 	t_modifier		modifier;
@@ -69,6 +70,7 @@ typedef struct	s_printf
 }				t_printf;
 
 int				ft_printf(char *format, ...);
+int				ft_dprintf(int fd, char *format, ...);
 int				ft_putdouble(double n, t_printf *p);
 int				ldtoa_fill(double n, t_printf *p, long long value, int pe);
 char			*ft_dtoa_printf(double n, t_printf *p, int t);
