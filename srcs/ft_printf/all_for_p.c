@@ -6,7 +6,7 @@
 /*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/11 17:58:43 by judumay           #+#    #+#             */
-/*   Updated: 2019/03/11 17:58:44 by judumay          ###   ########.fr       */
+/*   Updated: 2019/06/17 11:27:15 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void			reset_t_printf(t_printf *p)
 	p->flags->plus = 0;
 	p->precision = -1;
 	p->champ = -1;
-	p->modifier = FT_PRINTF_NO_MODIFIERS;
-	p->conv = NO_INPUT;
+	p->modifier = ft_printf_no_modifiers;
+	p->conv = no_input;
 	p->tmpchar = 0;
 	ft_strdel(&p->conv_ret);
 }

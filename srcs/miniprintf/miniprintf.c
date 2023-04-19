@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   miniprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mabouce <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mabouce <mabouce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 16:01:54 by mabouce           #+#    #+#             */
-/*   Updated: 2019/04/23 10:39:31 by mabouce          ###   ########.fr       */
+/*   Updated: 2019/06/25 11:39:28 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	ft_read_format(t_ms *s)
 				s->zero_fill = 1;
 			ft_check_width(s);
 			ft_check_accu(s);
+			ft_check_longlong(s);
 			if (!ft_is_conv(s->format[s->i], s))
 				ft_error_miniprintf(s, -3);
 			if (!(s->output = ft_strdjoind(s->output
@@ -60,11 +61,14 @@ int		miniprintf(const char *format, ...)
 
 	if (!(s = (t_ms *)malloc(sizeof(t_ms))))
 		ft_error_miniprintf(s, 0);
+	ft_bzero(s, sizeof(t_ms));
 	va_start(s->va, format);
 	if (!(s->format = ft_strdup((char *)format)))
 		ft_error_miniprintf(s, -1);
 	ft_set_struct_mini(s);
 	ft_read_format(s);
+	if (s->noend == 0)
+		s->output = ft_strdjoin(s->output, "\x1b[0m");
 	ft_putstr(s->output);
 	ft_strdel(&(s->format));
 	ft_strdel(&(s->output));

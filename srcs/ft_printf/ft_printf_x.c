@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_x.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
+/*   By: judumay <judumay@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/11 18:00:43 by judumay           #+#    #+#             */
-/*   Updated: 2019/03/11 18:00:44 by judumay          ###   ########.fr       */
+/*   Updated: 2019/08/22 14:11:53 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ static __uint64_t	ft_printf_x_get_arg(t_printf *p)
 	__uint64_t	ret;
 
 	ret = 0;
-	if (p->modifier == FT_PRINTF_NO_MODIFIERS)
+	if (p->modifier == ft_printf_no_modifiers)
 		ret = va_arg(p->ap, __uint32_t);
-	else if (p->modifier == FT_PRINTF_H)
+	else if (p->modifier == ft_printf_h)
 		ret = (__uint16_t)va_arg(p->ap, __uint32_t);
-	else if (p->modifier == FT_PRINTF_HH)
+	else if (p->modifier == ft_printf_hh)
 		ret = (__uint8_t)va_arg(p->ap, __uint32_t);
-	else if (p->modifier == FT_PRINTF_L)
+	else if (p->modifier == ft_printf_l)
 		ret = va_arg(p->ap, unsigned long);
-	else if (p->modifier == FT_PRINTF_LL)
+	else if (p->modifier == ft_printf_ll)
 		ret = va_arg(p->ap, __uint64_t);
 	return (ret);
 }
@@ -113,7 +113,7 @@ t_printf			*ft_printf_x(t_printf *p)
 {
 	__uint64_t	tmp;
 
-	if (!(p->conv == FT_PRINTF_X || p->conv == FT_PRINTF_XX))
+	if (!(p->conv == ft_printf_hexa || p->conv == ft_printf_hexamaj))
 		return (p);
 	p->conv_ret = ft_lltoabase_unsigned(
 		(tmp = ft_printf_x_get_arg(p)), 16);
@@ -131,9 +131,9 @@ t_printf			*ft_printf_x(t_printf *p)
 		p = ft_printf_x_flags(p, tmp);
 	if (p->error)
 		return (p);
-	if (p->conv == FT_PRINTF_XX)
+	if (p->conv == ft_printf_hexamaj)
 		p->conv_ret = ft_strtoupper_leakless(p->conv_ret);
-	ft_putstr(p->conv_ret);
+	ft_putstr_fd(p->conv_ret, p->fd);
 	p->ret += ft_strlen(p->conv_ret);
 	return (p);
 }

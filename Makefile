@@ -33,6 +33,9 @@ SRCS_LIBFT_NAME		= 	is/ft_isalnum.c						\
 						conv/ft_lltoabase_unsigned.c 		\
 						conv/ft_ltoa.c						\
 						conv/ft_atolli.c					\
+						conv/ft_atoi_base.c 				\
+						conv/ft_atolli_base.c 				\
+						conv/ft_hexatoi.c					\
 															\
 						mem/ft_bzero.c						\
 						mem/ft_memalloc.c					\
@@ -104,9 +107,13 @@ SRCS_LIBFT_NAME		= 	is/ft_isalnum.c						\
 						str/ft_strdjoin.c					\
 						str/ft_strfindc.c					\
 						str/ft_strsplit_multi.c				\
+						str/ft_is_sep.c						\
+						str/ft_strremove_char.c				\
+						str/ft_strdjoinc.c					\
 															\
 						int/ft_intlen.c 					\
 						int/ft_longlen.c	 				\
+						int/ft_longlonglen.c 				\
 						int/ft_pow.c 						\
 						int/ft_inttabdel.c					\
 															\
@@ -144,6 +151,7 @@ SRCS_LIBFT_NAME		= 	is/ft_isalnum.c						\
 						btree/btree_insert_data.c			\
 						btree/btree_int_cmp.c				\
 						btree/btree_print.c					\
+						btree/btree_free.c					\
 															\
 						get_next_line.c 					\
 
@@ -178,6 +186,7 @@ SRCS_MNPF_NAME 		=	miniprintf.c						\
 						ft_csp.c							\
 						ft_mod.c							\
 						ft_diouxx.c							\
+						ft_longlong.c						\
 						ft_struct.c							\
 						ft_width.c							\
 						ft_accu.c				
@@ -192,21 +201,21 @@ SRCS_INCLUDE_LIBFT	=	libft.h								\
 # Sources, objects and includes path
 SRCS_MNPF_PATH		= 	./srcs/miniprintf/
 SRCS_LIBFT_PATH		= 	./srcs/libft/
-SRCS_FT_PRINTF_PATH	= 	./srcs/ft_printf/
+SRCS_ft_printf_pointerATH	= 	./srcs/ft_printf/
 OBJS_PATH			=	./objs/
 OBJS_MNPF_PATH 		= 	./objs/miniprintf/
 OBJS_LIBFT_PATH 	= 	./objs/libft/
-OBJS_FT_PRINTF_PATH = 	./objs/ft_printf/
+OBJS_ft_printf_pointerATH = 	./objs/ft_printf/
 INCLUDES_PATH 		= 	./includes/
 
 # Sources and objects
 INCLUDES  		=	$(addprefix $(INCLUDES_PATH), $(SRCS_INCLUDE_LIBFT))
 SRCS_MNPF		=	$(addprefix $(SRCS_MNPF_PATH), $(SRCS_MNPF_NAME))
 SRCS_LIBFT		=	$(addprefix $(SRCS_LIBFT_PATH), $(SRCS_LIBFT_NAME))
-SRCS_FT_PRINTF	=	$(addprefix $(SRCS_FT_PRINTF_PATH), $(SRCS_FT_PRINTF_NAME))
+SRCS_FT_PRINTF	=	$(addprefix $(SRCS_ft_printf_pointerATH), $(SRCS_FT_PRINTF_NAME))
 OBJS_MNPF		=	$(patsubst $(SRCS_MNPF_PATH)%.c, $(OBJS_MNPF_PATH)%.o, $(SRCS_MNPF))
 OBJS_LIBFT		=	$(patsubst $(SRCS_LIBFT_PATH)%.c, $(OBJS_LIBFT_PATH)%.o, $(SRCS_LIBFT))
-OBJS_FT_PRINTF	=	$(patsubst $(SRCS_FT_PRINTF_PATH)%.c, $(OBJS_FT_PRINTF_PATH)%.o, $(SRCS_FT_PRINTF))
+OBJS_FT_PRINTF	=	$(patsubst $(SRCS_ft_printf_pointerATH)%.c, $(OBJS_ft_printf_pointerATH)%.o, $(SRCS_FT_PRINTF))
 
 # Compilation
 ifeq ($(SANITIZE),yes)
@@ -280,7 +289,7 @@ endif
 	@mkdir -p objs/miniprintf
 	@$(CC) -I $(INCLUDES_PATH) -o $@ -c $<
 
-$(OBJS_FT_PRINTF_PATH)%.o: $(SRCS_FT_PRINTF_PATH)%.c $(INCLUDES)
+$(OBJS_ft_printf_pointerATH)%.o: $(SRCS_ft_printf_pointerATH)%.c $(INCLUDES)
 
 ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
 	@echo "$(_END)$(_GREEN)[OK]\t$(_UNDER)$(_YELLOW)	\
@@ -313,7 +322,9 @@ ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
 	@echo "$(_YELLOW)Remove :\t$(_RED)" $(LDFLAGS)$(NAME)" $(_END)"
 endif
 
-re: fclean all
+re:
+	@make fclean
+	@make all
 
 norme:
 	@echo "$(_GREEN)"

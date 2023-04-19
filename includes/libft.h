@@ -6,7 +6,7 @@
 /*   By: mabouce <mabouce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 16:01:26 by judumay           #+#    #+#             */
-/*   Updated: 2019/05/31 17:26:12 by mabouce          ###   ########.fr       */
+/*   Updated: 2019/06/25 13:43:06 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strnstr(const char *haystack, const char *needle
-						, size_t len);
+					, size_t len);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strnew(size_t size);
@@ -85,11 +85,15 @@ char				*ft_strjoind(char const *s1, char *s2);
 char				*ft_strdjoind(char *s1, char *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
+char				**ft_strsplit_multi(char const *s, char *c);
+int					ft_is_sep(char c, char *sep);
 int					ft_strisnum(char *str);
 void				ft_strtabdel(char ***tab);
 char				*ft_strdjoin(char *s1, char const *s2);
+char				*ft_strdjoinc(char *s1, char c);
 size_t				ft_strfindc(const char *s, char c);
-char				**ft_strsplit_multi(char const *s, char *c);
+
+char				*ft_strremove_char(char const *s, char *sep);
 
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
@@ -116,7 +120,21 @@ void				ft_putnbr_fd(int n, int fd);
 void				ft_putnbrll(long long n);
 void				ft_putnbrerr(int nb);
 void				ft_printtab_nb(int *nb, int len);
-void				ft_printtab_str(char **str);
+void				ft_printtab_str(char **str, int lenght);
+
+int					ft_atoi(const char *str);
+char				*ft_itoa(int n);
+long				ft_atol(const char *str);
+char				*ft_lltoa(long long n);
+char				*ft_lltoabase_signless(long long nbr, int base);
+char				*ft_lltoabase_signed(long long nbr, int base);
+char				*ft_lltoabase_unsigned(unsigned long long nbr, int base);
+char				*ft_dtoa(double n, int prec);
+char				*ft_ltoa(long n);
+long long			ft_atolli(const char *str);
+int					ft_atoi_base(const char *str, int base);
+long long			ft_atolli_base(const char *str, int base);
+int					ft_hexatoi(char *hex, int len);
 
 t_list				*ft_create_elem(void *data);
 t_list				*ft_create_elem_int(int i);
@@ -150,17 +168,6 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				ft_lstadd(t_list **alst, t_list *new);
 int					ft_lstlen(t_list *beg);
 
-int					ft_atoi(const char *str);
-char				*ft_itoa(int n);
-long				ft_atol(const char *str);
-char				*ft_lltoa(long long n);
-char				*ft_lltoabase_signless(long long nbr, int base);
-char				*ft_lltoabase_signed(long long nbr, int base);
-char				*ft_lltoabase_unsigned(unsigned long long nbr, int base);
-char				*ft_dtoa(double n, int prec);
-char				*ft_ltoa(long n);
-long long			ft_atolli(const char *str);
-
 size_t				ft_strclen(const char *s, char c);
 char				*ft_strfill(char *s, char c, size_t size);
 char				*ft_strsub_leakless(char *s, unsigned int start
@@ -170,6 +177,7 @@ char				*ft_stradd_leakless(char *s1, char c);
 char				*ft_strrev_leakless(char *s);
 
 int					ft_longlen(long n);
+long long			ft_longlonglen(long long n);
 int					ft_pow(int x, int y);
 int					ft_intlen(int n);
 void				ft_inttabdel(int ***tab, int len);
@@ -183,5 +191,6 @@ void				btree_insert_data(t_btree **root, void *content
 						, int (*cmpf)(void *, void *));
 int					btree_lvl_count(t_btree *root);
 void				btree_print(t_btree *root);
+void				btree_free(t_btree **root);
 
 #endif

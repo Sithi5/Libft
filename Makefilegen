@@ -15,8 +15,8 @@ NOFLAG				=	yes
 ifeq ($(SANITIZE),yes)
 	CC				=	gcc -Wall -Wextra -Werror -fsanitize=address \
 						-Wall -Wextra -Werror
-else ifeq ($(WEVERYTHING),yes)
-	CC				=	gcc -Wall -Wextra -Weverything
+else ifeq ($(NOERROR),yes)
+	CC				=	gcc -Wall -Wextra
 else
 	CC				=	gcc -Wall -Wextra -Werror
 endif
@@ -107,7 +107,9 @@ ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
 	@echo "$(_YELLOW)Remove :\t$(_RED)" ./libft/libft.a"$(_END)"
 endif
 
-re:	fclean all
+re:
+	@make fclean
+	@make all
 
 $(OBJS_PATH)%.o: $(SRCS_PATH)%.c $(INCLUDES)
 	@mkdir -p ./objs/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_p.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
+/*   By: judumay <judumay@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/11 18:00:09 by judumay           #+#    #+#             */
-/*   Updated: 2019/03/11 18:00:10 by judumay          ###   ########.fr       */
+/*   Updated: 2019/08/22 14:11:08 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ t_printf			*ft_printf_p(t_printf *p)
 {
 	__uint64_t	tmp;
 
-	if (!(p->conv == FT_PRINTF_P))
+	if (!(p->conv == ft_printf_pointer))
 		return (p);
 	if (!(p->conv_ret = ft_lltoabase_unsigned(
 		(tmp = ft_printf_p_get_arg(p)), 16))
@@ -121,7 +121,7 @@ t_printf			*ft_printf_p(t_printf *p)
 		p = ft_printf_p_flags(p);
 	if (p->error)
 		return (p);
-	ft_putstr(p->conv_ret);
+	ft_putstr_fd(p->conv_ret, p->fd);
 	p->ret += ft_strlen(p->conv_ret);
 	return (p);
 }

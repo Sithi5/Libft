@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_c.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
+/*   By: judumay <judumay@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/11 17:58:52 by judumay           #+#    #+#             */
-/*   Updated: 2019/03/11 17:58:53 by judumay          ###   ########.fr       */
+/*   Updated: 2019/08/22 14:09:21 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_printf			*ft_printf_c(t_printf *p)
 {
 	__int8_t	arg;
 
-	if (!(p->conv == FT_PRINTF_C && p->modifier != FT_PRINTF_L))
+	if (!(p->conv == ft_printf_char && p->modifier != ft_printf_l))
 		return (p);
 	arg = (__int8_t)va_arg(p->ap, __int32_t);
 	if (!(p->conv_ret = ft_strnew(1))
@@ -55,11 +55,11 @@ t_printf			*ft_printf_c(t_printf *p)
 	if (p->error)
 		return (p);
 	if (!p->flags->less)
-		ft_putstr(p->conv_ret);
+		ft_putstr_fd(p->conv_ret, p->fd);
 	if (!arg && ++p->ret)
-		ft_putchar(arg);
+		ft_putchar_fd(arg, p->fd);
 	if (p->flags->less)
-		ft_putstr(p->conv_ret);
+		ft_putstr_fd(p->conv_ret, p->fd);
 	p->ret += ft_strlen(p->conv_ret);
 	return (p);
 }

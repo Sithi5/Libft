@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_d.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
+/*   By: judumay <judumay@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 12:34:31 by judumay           #+#    #+#             */
-/*   Updated: 2019/02/07 10:44:37 by judumay          ###   ########.fr       */
+/*   Updated: 2019/08/22 14:09:47 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ static __int64_t	ft_printf_d_get_arg(t_printf *p)
 	__int64_t		ret;
 
 	ret = 0;
-	if (p->modifier == FT_PRINTF_NO_MODIFIERS)
+	if (p->modifier == ft_printf_no_modifiers)
 		ret = va_arg(p->ap, __int32_t);
-	else if (p->modifier == FT_PRINTF_H)
+	else if (p->modifier == ft_printf_h)
 		ret = (__int16_t)va_arg(p->ap, __int32_t);
-	else if (p->modifier == FT_PRINTF_HH)
+	else if (p->modifier == ft_printf_hh)
 		ret = (__int8_t)va_arg(p->ap, __int32_t);
-	else if (p->modifier == FT_PRINTF_L)
+	else if (p->modifier == ft_printf_l)
 		ret = va_arg(p->ap, long);
-	else if (p->modifier == FT_PRINTF_LL)
+	else if (p->modifier == ft_printf_ll)
 		ret = va_arg(p->ap, __int64_t);
 	return (ret);
 }
@@ -119,7 +119,7 @@ t_printf			*ft_printf_d(t_printf *p)
 {
 	__int64_t		tmp;
 
-	if (!(p->conv == FT_PRINTF_D))
+	if (!(p->conv == ft_printf_decimal))
 		return (p);
 	if (!(p->conv_ret = ft_lltoabase_signless(
 		(tmp = ft_printf_d_get_arg(p)), 10))
@@ -139,7 +139,7 @@ t_printf			*ft_printf_d(t_printf *p)
 		p = ft_printf_d_flags(p, tmp);
 	if (p->error)
 		return (p);
-	ft_putstr(p->conv_ret);
+	ft_putstr_fd(p->conv_ret, p->fd);
 	p->ret += ft_strlen(p->conv_ret);
 	return (p);
 }

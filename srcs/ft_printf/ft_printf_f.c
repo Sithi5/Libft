@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_f.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
+/*   By: judumay <judumay@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/11 17:59:17 by judumay           #+#    #+#             */
-/*   Updated: 2019/03/11 17:59:18 by judumay          ###   ########.fr       */
+/*   Updated: 2019/08/22 14:10:24 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ static long double	ft_printf_f_get_arg(t_printf *p)
 	double	ret;
 
 	ret = 0;
-	if (p->modifier == FT_PRINTF_NO_MODIFIERS)
+	if (p->modifier == ft_printf_no_modifiers)
 		ret = va_arg(p->ap, double);
-	else if (p->modifier == FT_PRINTF_L)
+	else if (p->modifier == ft_printf_l)
 		ret = va_arg(p->ap, double);
-	else if (p->modifier == FT_PRINTF_FL)
+	else if (p->modifier == ft_printf_fl)
 		ret = va_arg(p->ap, long double);
 	return (ret);
 }
@@ -81,7 +81,7 @@ t_printf			*ft_printf_f(t_printf *p)
 	int			i;
 	char		*tmpe;
 
-	if ((i = 1) && !(p->conv == FT_PRINTF_F))
+	if ((i = 1) && !(p->conv == ft_printf_float))
 		return (p);
 	if ((tmp = ft_printf_f_get_arg(p)) && tmp != 0)
 		i = ft_putdouble(tmp, p);
@@ -99,7 +99,7 @@ t_printf			*ft_printf_f(t_printf *p)
 	p = ft_printf_f_suite(p, tmp, i);
 	if (p->error)
 		return (p);
-	ft_putstr(p->conv_ret);
+	ft_putstr_fd(p->conv_ret, p->fd);
 	p->ret += ft_strlen(p->conv_ret);
 	return (p);
 }

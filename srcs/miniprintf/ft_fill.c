@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fill.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mabouce <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mabouce <mabouce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 16:01:12 by mabouce           #+#    #+#             */
-/*   Updated: 2019/04/22 16:01:14 by mabouce          ###   ########.fr       */
+/*   Updated: 2019/06/25 11:39:18 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_fill_conv(t_ms *s)
 	function[2] = ft_int;
 	function[3] = ft_int;
 	function[4] = ft_mod;
+	if (s->longlong == 1 && ft_fill_longlong(s))
+		return (ft_longlong(s));
 	i = 0;
 	while (s->conv[i])
 	{

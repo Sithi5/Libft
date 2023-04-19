@@ -1,35 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_longlen.c                                       :+:      :+:    :+:   */
+/*   ft_is_sep.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mabouce <mabouce@student.42.fr>            +#+  +:+       +#+        */
+/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/24 09:52:48 by judumay           #+#    #+#             */
-/*   Updated: 2019/06/24 16:17:09 by mabouce          ###   ########.fr       */
+/*   Created: 2019/06/05 11:53:29 by mabouce           #+#    #+#             */
+/*   Updated: 2019/06/10 17:06:59 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libft.h>
-#include <limits.h>
 
-int		ft_longlen(long n)
+int		ft_is_sep(char c, char *sep)
 {
-	int				len;
-	unsigned long	nb;
+	int i;
 
-	len = 1;
-	if (n < 0)
+	i = 0;
+	while (sep[i])
 	{
-		nb = -n;
-		len++;
+		if (c == sep[i])
+			return (1);
+		i++;
 	}
-	else
-		nb = n;
-	while (nb >= 10)
-	{
-		nb /= 10;
-		len++;
-	}
-	return (len);
+	return (0);
 }

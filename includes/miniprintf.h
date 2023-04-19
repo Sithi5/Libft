@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   miniprintf.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
+/*   By: mabouce <mabouce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/22 16:01:31 by judumay           #+#    #+#             */
-/*   Updated: 2019/05/22 16:01:31 by judumay          ###   ########.fr       */
+/*   Updated: 2019/06/25 11:19:00 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ typedef struct				s_s
 	int						width;
 	int						accu;
 	int						zero_fill;
+	int						noend;
+	int						longlong;
 
 	char					*format;
 	char					*tmp;
@@ -45,6 +47,10 @@ void						ft_apply_width_zero(t_ms *s);
 
 void						ft_check_accu(t_ms *s);
 char						*ft_apply_accu(t_ms *s, char *str);
+
+void						ft_check_longlong(t_ms *s);
+int							ft_fill_longlong(t_ms *s);
+char						*ft_longlong(t_ms *s);
 
 char						*ft_char(t_ms *s);
 char						*ft_mod(t_ms *s);

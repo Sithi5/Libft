@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_no_conv.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: judumay <judumay@student.42.fr>            +#+  +:+       +#+        */
+/*   By: judumay <judumay@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/11 17:59:57 by judumay           #+#    #+#             */
-/*   Updated: 2019/03/11 17:59:57 by judumay          ###   ########.fr       */
+/*   Updated: 2019/08/22 14:10:44 by judumay          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static t_printf		*ft_printf_champ(t_printf *p)
 
 t_printf			*ft_printf_no_conv(t_printf *p)
 {
-	if (!((int)p->conv == (int)FT_PRINTF_NO_MODIFIERS))
+	if (!((int)p->conv == (int)ft_printf_no_modifiers))
 		return (p);
 	if (!(p->conv_ret = ft_strnew(1))
 		&& (p->error = -1))
@@ -51,7 +51,7 @@ t_printf			*ft_printf_no_conv(t_printf *p)
 	p = ft_printf_champ(p);
 	if (p->error)
 		return (p);
-	ft_putstr(p->conv_ret);
+	ft_putstr_fd(p->conv_ret, p->fd);
 	p->ret += ft_strlen(p->conv_ret);
 	return (p);
 }

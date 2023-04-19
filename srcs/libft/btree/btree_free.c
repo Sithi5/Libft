@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_longlen.c                                       :+:      :+:    :+:   */
+/*   btree_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabouce <mabouce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/24 09:52:48 by judumay           #+#    #+#             */
-/*   Updated: 2019/06/24 16:17:09 by mabouce          ###   ########.fr       */
+/*   Created: 2019/06/05 10:37:56 by mabouce           #+#    #+#             */
+/*   Updated: 2019/06/05 10:38:17 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <libft.h>
-#include <limits.h>
+#include "libft.h"
 
-int		ft_longlen(long n)
+void	btree_free(t_btree **root)
 {
-	int				len;
-	unsigned long	nb;
-
-	len = 1;
-	if (n < 0)
-	{
-		nb = -n;
-		len++;
-	}
-	else
-		nb = n;
-	while (nb >= 10)
-	{
-		nb /= 10;
-		len++;
-	}
-	return (len);
+	if (!root || !*root)
+		return ;
+	if ((*root)->left)
+		btree_free(&((*root)->left));
+	if ((*root)->right)
+		btree_free(&((*root)->right));
+	free(*root);
+	return ;
 }

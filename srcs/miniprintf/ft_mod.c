@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_mod.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mabouce <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mabouce <mabouce@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 16:01:21 by mabouce           #+#    #+#             */
-/*   Updated: 2019/04/22 16:01:22 by mabouce          ###   ########.fr       */
+/*   Updated: 2019/06/25 11:35:19 by mabouce          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ char	*ft_mod(t_ms *s)
 	char *tmp;
 
 	tmp = va_arg(s->va, char *);
+	if (ft_strcmp(tmp, "NOEND") == 0)
+	{
+		s->noend = 1;
+		return (ft_strdup(""));
+	}
 	if (ft_strcmp(tmp, "UNDER") == 0)
 		return (ft_strdup("\x1b[4m"));
 	if (ft_strcmp(tmp, "END") == 0)
