@@ -1,13 +1,13 @@
-SHELL = sh
+SHELL				=	/bin/sh
 
 # Executable name, can be change
 NAME = libft.a
 
 #Visual
 VISUAL				=	yes
-VISUALNUM			=	2
 
 #Compilation Modes. Default= -Wall -Wextra -Werror
+
 SANITIZE			=	no
 NOERROR				=	no
 NOFLAG				=	no
@@ -177,9 +177,9 @@ SRCS_FT_PRINTF_NAME =	ft_printf.c							\
 						ft_printf_u.c 						\
 						ft_printf_percent.c 				\
 						ft_printf_s.c 						\
-						ft_printf_x.c 
+						ft_printf_x.c
 
-						#	MINIPRINTF	
+						#	MINIPRINTF
 SRCS_MNPF_NAME 		=	miniprintf.c						\
 						ft_error_miniprintf.c				\
 						ft_fill.c							\
@@ -189,14 +189,12 @@ SRCS_MNPF_NAME 		=	miniprintf.c						\
 						ft_longlong.c						\
 						ft_struct.c							\
 						ft_width.c							\
-						ft_accu.c				
+						ft_accu.c
 
 SRCS_INCLUDE_LIBFT	=	libft.h								\
 						get_next_line.h						\
 						miniprintf.h						\
 						ftprintf.h
-
-
 
 # Sources, objects and includes path
 SRCS_MNPF_PATH		= 	./srcs/miniprintf/
@@ -218,15 +216,21 @@ OBJS_LIBFT		=	$(patsubst $(SRCS_LIBFT_PATH)%.c, $(OBJS_LIBFT_PATH)%.o, $(SRCS_LI
 OBJS_FT_PRINTF	=	$(patsubst $(SRCS_ft_printf_pointerATH)%.c, $(OBJS_ft_printf_pointerATH)%.o, $(SRCS_FT_PRINTF))
 
 # Compilation
+GEN					:= Generated in mode
+
 ifeq ($(SANITIZE),yes)
 	CC				=	gcc -Wall -Wextra -Werror -fsanitize=address \
 						-Wall -Wextra -Werror
+	GEN				+=	 SANITIZE
 else ifeq ($(NOERROR),yes)
 	CC				=	gcc -Wall -Wextra
+	GEN				+=	 WALL WEXTRA
 else ifeq ($(NOFLAG),yes)
 	CC				=	gcc
+	GEN				+=	 no flag
 else
 	CC				=	gcc -Wall -Wextra -Werror
+	GEN				+=	 WALL WEXTRA WERROR
 endif
 
 LDFLAGS = ./libft/
@@ -265,23 +269,11 @@ $(NAME): $(OBJS_LIBFT) $(OBJS_MNPF) $(OBJS_FT_PRINTF)
 	@ar rc $(NAME) $(OBJS_LIBFT) $(OBJS_MNPF) $(OBJS_FT_PRINTF)
 	@ranlib $(NAME)
 	@echo "\n"
-ifeq ($(SANITIZE),yes)
-	@echo "LIBFT : Génération en mode sanitize"
-else ifeq ($(NOERROR),yes)
-	@echo "LIBFT : Génération en mode noerror"
-else ifeq ($(NOFLAG),yes)
-	@echo "LIBFT : Génération en mode noflag"
-else
-	@echo "LIBFT : Génération en mode release"
-endif
-
-ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
-	@echo "VISUAL VERSION 2"
-endif
+	@echo "$(NAME) : $(GEN)"
 
 $(OBJS_MNPF_PATH)%.o: $(SRCS_MNPF_PATH)%.c $(INCLUDES)
 
-ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
+ifeq ($(VISUAL), yes)
 	@echo "$(_END)$(_GREEN)[OK]\t$(_UNDER)$(_YELLOW)	\
 	COMPILE :$(_END)$(_BOLD)$(_WHITE)\t$<"
 endif
@@ -291,7 +283,7 @@ endif
 
 $(OBJS_ft_printf_pointerATH)%.o: $(SRCS_ft_printf_pointerATH)%.c $(INCLUDES)
 
-ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
+ifeq ($(VISUAL), yes)
 	@echo "$(_END)$(_GREEN)[OK]\t$(_UNDER)$(_YELLOW)	\
 	COMPILE :$(_END)$(_BOLD)$(_WHITE)\t$<"
 endif
@@ -301,7 +293,7 @@ endif
 
 $(OBJS_LIBFT_PATH)%.o: $(SRCS_LIBFT_PATH)%.c $(INCLUDES)
 
-ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
+ifeq ($(VISUAL), yes)
 	@echo "$(_END)$(_GREEN)[OK]\t$(_UNDER)$(_YELLOW)	\
 	COMPILE :$(_END)$(_BOLD)$(_WHITE)\t$<"
 endif
@@ -311,14 +303,14 @@ endif
 	@$(CC) -I $(INCLUDES_PATH) -o $@ -c $<
 
 clean:
-ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
+ifeq ($(VISUAL), yes)
 	@echo "$(_YELLOW)Remove :\t$(_RED)" $(LDFLAGS)objs/"$(_END)"
 endif
 	@rm -rf $(OBJS_PATH) 2> /dev/null || true
 
 fclean: clean
 	@rm -f $(NAME)
-ifeq ($(shell [[ $(VISUAL) == yes && $(VISUALNUM) == 2 ]] && echo true ), true)
+ifeq ($(VISUAL), yes)
 	@echo "$(_YELLOW)Remove :\t$(_RED)" $(LDFLAGS)$(NAME)" $(_END)"
 endif
 
