@@ -12,9 +12,9 @@
 
 #include "miniprintf.h"
 
-int		ft_is_conv(char c, t_ms *s)
+int ft_is_conv(char c, t_ms *s)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (s->conv[i])
@@ -26,7 +26,7 @@ int		ft_is_conv(char c, t_ms *s)
 	return (0);
 }
 
-void	ft_read_format(t_ms *s)
+void ft_read_format(t_ms *s)
 {
 	s->i = -1;
 	s->j = 0;
@@ -34,8 +34,7 @@ void	ft_read_format(t_ms *s)
 	{
 		if (s->format[s->i] == '%')
 		{
-			if (!(s->output = ft_strdjoind(s->output
-							, ft_fill_text(s))))
+			if (!(s->output = ft_strdjoind(s->output, ft_fill_text(s))))
 				ft_error_miniprintf(s, -3);
 			s->i++;
 			if (s->format[s->i] == '0')
@@ -45,8 +44,7 @@ void	ft_read_format(t_ms *s)
 			ft_check_longlong(s);
 			if (!ft_is_conv(s->format[s->i], s))
 				ft_error_miniprintf(s, -3);
-			if (!(s->output = ft_strdjoind(s->output
-							, ft_fill_conv(s))))
+			if (!(s->output = ft_strdjoind(s->output, ft_fill_conv(s))))
 				ft_error_miniprintf(s, -3);
 			s->j = s->i + 1;
 		}
@@ -55,9 +53,35 @@ void	ft_read_format(t_ms *s)
 		ft_error_miniprintf(s, -3);
 }
 
-int		miniprintf(const char *format, ...)
+/**
+ * miniprintf - a minimalistic printf implementation
+ *
+ * This function implements a minimal version of printf, providing basic
+ * formatting options for printing strings, characters, and integers.
+ * It also supports ANSI escape sequences for text color, bold, and underline.
+ *
+ * @param format: a format string that can include placeholders for printing
+ *                variables. The following format specifiers are supported:
+ *                - %c: for a character
+ *                - %s: for a string
+ *                - %d: for a signed decimal integer
+ *                - %i: for a signed decimal integer (same as %d)
+ *                - %%: to print a literal '%' character
+ *                Additional modifiers can be used for color, bold, and
+ *                underline, by including a string inside the format
+ *                specifier, e.g., "%{RED}" for red text.
+ * @param ...: a variable number of arguments, corresponding to the format
+ *             specifiers in the format string.
+ *
+ * @return: 0 on success, a non-zero value on failure.
+ *
+ * Example usage:
+ *   miniprintf("Hello, %{BOLD}World%{END}!\n");
+ *   miniprintf("The value of x is %d.\n", x);
+ */
+int miniprintf(const char *format, ...)
 {
-	t_ms		*s;
+	t_ms *s;
 
 	if (!(s = (t_ms *)malloc(sizeof(t_ms))))
 		ft_error_miniprintf(s, 0);
